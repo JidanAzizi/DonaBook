@@ -35,8 +35,43 @@ namespace DonaBookApi.Model
         BekasRusak
     }
 
+    //Membuat interface IBookState untuk menerapkan State Design Pattern yang mana merupakan implementasi dari state-based
+    public interface IBookState {
+        void Handle(Book context);
+    }
+
+    public class AvailableState : IBookState {
+        public void Handle(Book context) {
+            Console.WriteLine("Buku sekarang dipinjam.");
+            context.SetState(new BorrowedState());
+        }
+    }
+
+    public class BorrowedState : IBookState {
+        public void Handle(Book context) {
+            Console.WriteLine("Buku sedang dipinjam.");
+        }
+    }
+
     public class Book
     {
+        private IBookState states;
+        public void EnsureStateInit() {
+            if (states == null)
+            {
+                states = new AvailableState();// default bahwa buku tersedia.
+            }
+        }
+
+        public void SetState(IBookState state) {
+            states = state;
+        }
+
+        public void Request() {
+
+            EnsureStateInit();
+            states.Handle(this);
+        }
         public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
@@ -53,6 +88,15 @@ namespace DonaBookApi.Model
 
         // Constructor tanpa parameter untuk Swagger dan deserialisasi
         public Book() { }
+
+        //Statebased
+        public void VerifyBook()
+        {
+            if (IsVerified)
+                throw new InvalidOperationException("Book already verified.");
+            IsVerified = true;
+        }
+
 
         // Constructor utama dengan logika rating default
         public Book(string title, string publisher, Genre genre, string author, Category category, BookCondition condition, int quantity, int donorId)

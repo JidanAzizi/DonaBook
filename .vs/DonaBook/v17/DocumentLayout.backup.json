@@ -7,8 +7,24 @@
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\data\\user.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\data\\user.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\data\\book.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\data\\book.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,28 +44,80 @@
               "RelativeDocumentMoniker": "DonaBookApi\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Controllers\\UserController.cs",
               "RelativeToolTip": "DonaBookApi\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T13:08:46.164Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\Book.cs",
+              "RelativeDocumentMoniker": "DonaBookApi\\Model\\Book.cs",
+              "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\Book.cs",
+              "RelativeToolTip": "DonaBookApi\\Model\\Book.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwDwAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T13:57:08.914Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\User.cs",
               "RelativeDocumentMoniker": "DonaBookApi\\Model\\User.cs",
               "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\User.cs",
               "RelativeToolTip": "DonaBookApi\\Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:27:06.483Z",
+              "WhenOpened": "2025-05-03T13:55:07.083Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "user.json",
+              "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Data\\user.json",
+              "RelativeDocumentMoniker": "DonaBookApi\\Data\\user.json",
+              "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Data\\user.json",
+              "RelativeToolTip": "DonaBookApi\\Data\\user.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-03T13:55:02.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "book.json",
+              "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Data\\book.json",
+              "RelativeDocumentMoniker": "DonaBookApi\\Data\\book.json",
+              "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Data\\book.json",
+              "RelativeToolTip": "DonaBookApi\\Data\\book.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-03T13:55:01.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "DonaBookApi\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Controllers\\BookController.cs",
+              "RelativeToolTip": "DonaBookApi\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T13:54:13.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             }
           ]
         }

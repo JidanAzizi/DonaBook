@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DonaBookApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+621af7b7cba78ba39b718034e55da057fe705c55")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0f98d81682415d15ce74bad6b70b0414292de0c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DonaBookApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DonaBookApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
