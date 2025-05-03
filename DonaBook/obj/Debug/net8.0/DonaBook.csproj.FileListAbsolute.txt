@@ -1,0 +1,5 @@
+C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.GeneratedMSBuildEditorConfig.editorconfig
+C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.AssemblyInfoInputs.cache
+C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.AssemblyInfo.cs
+C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.csproj.CoreCompileInputs.cache
+C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.sourcelink.json

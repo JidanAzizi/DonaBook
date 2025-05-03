@@ -1,4 +1,4 @@
-﻿namespace BookDonationConsole.Models
+﻿namespace DonaBookApi.Model
 {
     public abstract class User
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Kpl_tubes.Model
+namespace DonaBookApi.Model
 {
     // ENUMS
     public enum Genre
