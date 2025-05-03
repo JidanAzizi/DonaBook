@@ -28,18 +28,12 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "bku",
+        "Name": "newBook",
         "Type": "DonaBookApi.Model.Book",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DonaBookApi.Controllers.BookController",
@@ -81,13 +75,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DonaBookApi.Controllers.UserController",

@@ -1,6 +1,8 @@
 ﻿using DonaBookApi.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.Text.Json.Serialization; // Tambahkan ini
 
 namespace DonaBookApi.Controllers
 {
@@ -8,36 +10,68 @@ namespace DonaBookApi.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private static List<Book> bookList = new List<Book>()
+        private readonly string _filePath = Path.Combine("Data", "book.json");
+
+        private List<Book> LoadBooks()
         {
-            new Book("Terangkanlah", "PT Gramedia", Genre.SelfHelp,"Yudha Harwanto", Category.Lainnya, BookCondition.Baru, 22, 001),
-            new Book("Cinderella Tanpa Nama", "Good Dreamer", Genre.Romance,"Patricia Alodie", Category.Remaja, BookCondition.BekasRusak, 44, 002),
-            new Book("Jejak Sang Jenius", "CV  Langganan Pustaka", Genre.History,"Oellien NoehaRisma Desliana", Category.Lainnya, BookCondition.BekasBaik, 88, 003)
-        };
+            if (!System.IO.File.Exists(_filePath))
+                return new List<Book>();
+
+            string json = System.IO.File.ReadAllText(_filePath);
+            var options = new JsonSerializerOptions 
+            { 
+                PropertyNameCaseInsensitive = true,
+                Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
+            };
+            return JsonSerializer.Deserialize<List<Book>>(json, options) ?? new List<Book>();
+        }
+
+        private void SaveBooks(List<Book> books)
+        {
+            var options = new JsonSerializerOptions 
+            { 
+                WriteIndented = true,
+                Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
+            };
+            string json = JsonSerializer.Serialize(books, options);
+            System.IO.File.WriteAllText(_filePath, json);
+        }
 
         [HttpGet]
-        public IEnumerable<Book> Get()
+        public ActionResult<IEnumerable<Book>> Get()
         {
-            return bookList;
+            var books = LoadBooks();
+            return Ok(books);
         }
 
         [HttpGet("{index}")]
-        public Book Get(int index)
+        public ActionResult<Book> Get(int index)
         {
-            return bookList[index];
+            var books = LoadBooks();
+            if (index < 0 || index >= books.Count)
+                return NotFound("Index tidak ditemukan.");
+            return Ok(books[index]);
         }
 
         [HttpPost]
-        public void Post([FromBody] Book bku)
+        public IActionResult Post([FromBody] Book newBook)
         {
-            bookList.Add(bku);
+            var books = LoadBooks();
+            newBook.Id = books.Count > 0 ? books.Max(b => b.Id) + 1 : 1;
+            books.Add(newBook);
+            SaveBooks(books);
+            return CreatedAtAction(nameof(Get), new { index = books.Count - 1 }, newBook);
         }
 
         [HttpDelete("{index}")]
-        public void Delete(int index)
+        public IActionResult Delete(int index)
         {
-            bookList.RemoveAt(index);
+            var books = LoadBooks();
+            if (index < 0 || index >= books.Count)
+                return NotFound("Index tidak ditemukan.");
+            books.RemoveAt(index);
+            SaveBooks(books);
+            return NoContent();
         }
-
     }
 }

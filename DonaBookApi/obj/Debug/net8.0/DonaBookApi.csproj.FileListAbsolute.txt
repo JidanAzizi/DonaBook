@@ -74,3 +74,5 @@ C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\Dona
 C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.pdb
 C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.genruntimeconfig.cache
 C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\ref\DonaBookApi.dll
+C:\DonaBook\DonaBookApi\bin\Debug\net8.0\Data\user.json
+C:\DonaBook\DonaBookApi\bin\Debug\net8.0\Data\book.json
