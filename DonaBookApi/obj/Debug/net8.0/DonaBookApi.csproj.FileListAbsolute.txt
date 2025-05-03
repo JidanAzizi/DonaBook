@@ -35,3 +35,42 @@ C:\DonaBook\DonaBookApi\obj\Debug\net8.0\refint\DonaBookApi.dll
 C:\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.pdb
 C:\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.genruntimeconfig.cache
 C:\DonaBook\DonaBookApi\obj\Debug\net8.0\ref\DonaBookApi.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\appsettings.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\Data\book.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\Data\user.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\DonaBookApi.staticwebassets.endpoints.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\DonaBookApi.exe
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\DonaBookApi.deps.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\DonaBookApi.runtimeconfig.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\DonaBookApi.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\DonaBookApi.pdb
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.csproj.AssemblyReference.cache
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.AssemblyInfoInputs.cache
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.AssemblyInfo.cs
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.csproj.CoreCompileInputs.cache
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.sourcelink.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\scopedcss\bundle\DonaBookApi.styles.css
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets\msbuild.DonaBookApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets\msbuild.DonaBookApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets\msbuild.build.DonaBookApi.props
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.DonaBookApi.props
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DonaBookApi.props
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBook.743C4843.Up2Date
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\refint\DonaBookApi.dll
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.pdb
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\DonaBookApi.genruntimeconfig.cache
+C:\Users\Idan\Documents\Jidan\College\Semester 4\Konstruksi Perangkat Lunak\DonaBook\DonaBookApi\obj\Debug\net8.0\ref\DonaBookApi.dll
