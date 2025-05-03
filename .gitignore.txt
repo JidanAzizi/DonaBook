@@ -1,0 +1,5 @@
+DonaBook/bin
+DonaBook/obj
+DonaBookApi/bin
+DonaBookApi/obj
+.vs
