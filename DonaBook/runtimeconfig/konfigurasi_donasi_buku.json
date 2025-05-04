@@ -1,0 +1,23 @@
+{
+    "bahasa": "id",
+    "fitur_donatur": [
+        "Mengajukan buku donasi",
+        "Menghapus buku donasi",
+        "Melihat semua buku donasi"
+    ],
+    "fitur_penerima": [
+        "Melihat semua buku donasi",
+        "Mencari buku",
+        "Mengajukan permintaan buku",
+        "Memberi ulasan"
+    ],
+    "fitur_relawanan": [
+        "Melihat buku yang belum diverifikasi",
+        "Memverifikasi kelayakan buku",
+        "Membuat laporan (opsional)"
+    ],
+    "konfirmasi": {
+        "en": "yes",
+        "id": "ya"
+    }
+}
