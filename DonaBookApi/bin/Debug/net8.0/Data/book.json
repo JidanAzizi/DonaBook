@@ -1,41 +1,41 @@
 [
-    {
-        "Id": 1,
-        "Title": "Dunia Fantasi Anak",
-        "Author": "Ayu Lestari",
-        "Publisher": "Pustaka Ceria",
-        "Genre": "Fantasy",
-        "Category": "AnakAnak",
-        "Condition": "Baru",
-        "Quantity": 10,
-        "IsVerified": false,
-        "Review": null,
-        "Rating": 5
-    },
-    {
-        "Id": 2,
-        "Title": "Belajar Sejarah Indonesia",
-        "Author": "Dr. Bambang Nugroho",
-        "Publisher": "Edu Press",
-        "Genre": "History",
-        "Category": "Pendidikan",
-        "Condition": "BekasBaik",
-        "Quantity": 6,
-        "IsVerified": true,
-        "Review": "Sumber belajar yang sangat informatif.",
-        "Rating": 4
-    },
-    {
-        "Id": 3,
-        "Title": "Panduan Hidup Bahagia",
-        "Author": "Sinta Dewi",
-        "Publisher": "Motivasi Books",
-        "Genre": "SelfHelp",
-        "Category": "Dewasa",
-        "Condition": "BekasRusak",
-        "Quantity": 2,
-        "IsVerified": false,
-        "Review": null,
-        "Rating": 3
-    }
+  {
+    "Id": 1,
+    "Title": "Dunia Fantasi Anak",
+    "Author": "Ayu Lestari",
+    "Publisher": "Pustaka Ceria",
+    "Genre": "fantasy",
+    "Category": "anakAnak",
+    "Condition": "baru",
+    "Quantity": 10,
+    "IsVerified": false,
+    "Review": null,
+    "Rating": 5
+  },
+  {
+    "Id": 2,
+    "Title": "Belajar Sejarah Indonesia",
+    "Author": "Dr. Bambang Nugroho",
+    "Publisher": "Edu Press",
+    "Genre": "history",
+    "Category": "pendidikan",
+    "Condition": "bekasBaik",
+    "Quantity": 6,
+    "IsVerified": true,
+    "Review": "Sumber belajar yang sangat informatif.",
+    "Rating": 4
+  },
+  {
+    "Id": 3,
+    "Title": "Panduan Hidup Bahagia",
+    "Author": "Sinta Dewi",
+    "Publisher": "Motivasi Books",
+    "Genre": "selfHelp",
+    "Category": "dewasa",
+    "Condition": "bekasRusak",
+    "Quantity": 2,
+    "IsVerified": false,
+    "Review": null,
+    "Rating": 3
+  }
 ]

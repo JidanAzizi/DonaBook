@@ -79,7 +79,7 @@
   },
   {
     "ContainingType": "DonaBookApi.Controllers.UserController",
-    "Method": "Get",
+    "Method": "GetAll",
     "RelativePath": "api/User",
     "HttpMethod": "GET",
     "IsController": true,
@@ -99,36 +99,14 @@
   },
   {
     "ContainingType": "DonaBookApi.Controllers.UserController",
-    "Method": "Post",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "user",
-        "Type": "DonaBookApi.Model.User",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "DonaBookApi.Controllers.UserController",
-    "Method": "Get",
-    "RelativePath": "api/User/{index}",
+    "Method": "GetById",
+    "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "index",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -148,24 +126,50 @@
   {
     "ContainingType": "DonaBookApi.Controllers.UserController",
     "Method": "Delete",
-    "RelativePath": "api/User/{index}",
+    "RelativePath": "api/User/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "index",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DonaBookApi.Controllers.UserController",
+    "Method": "Login",
+    "RelativePath": "api/User/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
+        "Name": "login",
+        "Type": "DonaBookApi.Controllers.UserController\u002BLoginRequest",
+        "IsRequired": true
       }
-    ]
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DonaBookApi.Controllers.UserController",
+    "Method": "Register",
+    "RelativePath": "api/User/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newUser",
+        "Type": "DonaBookApi.Model.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "DonaBookApi.Controllers.WeatherForecastController",
