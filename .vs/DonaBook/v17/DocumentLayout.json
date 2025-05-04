@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\model\\state\\ibookstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\model\\state\\ibookstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\users\\idan\\documents\\jidan\\college\\semester 4\\konstruksi perangkat lunak\\donabook\\donabookapi\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,15 +31,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "DonaBookApi\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Controllers\\BookController.cs",
+              "RelativeToolTip": "DonaBookApi\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T06:18:32.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\Book.cs",
               "RelativeDocumentMoniker": "DonaBookApi\\Model\\Book.cs",
               "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\Book.cs",
               "RelativeToolTip": "DonaBookApi\\Model\\Book.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwCUAAAB5AAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAYwCcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:57:08.914Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-05-03T13:57:08.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IBookState.cs",
+              "DocumentMoniker": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\State\\IBookState.cs",
+              "RelativeDocumentMoniker": "DonaBookApi\\Model\\State\\IBookState.cs",
+              "ToolTip": "C:\\Users\\Idan\\Documents\\Jidan\\College\\Semester 4\\Konstruksi Perangkat Lunak\\DonaBook\\DonaBookApi\\Model\\State\\IBookState.cs",
+              "RelativeToolTip": "DonaBookApi\\Model\\State\\IBookState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:00:13.679Z",
               "EditorCaption": ""
             }
           ]

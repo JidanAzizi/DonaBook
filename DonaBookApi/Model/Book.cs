@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DonaBookApi.Model.State;
+using System;
 using System.Collections.Generic;
 
 namespace DonaBookApi.Model
@@ -35,43 +36,8 @@ namespace DonaBookApi.Model
         BekasRusak
     }
 
-    //Membuat interface IBookState untuk menerapkan State Design Pattern yang mana merupakan implementasi dari state-based
-    public interface IBookState {
-        void Handle(Book context);
-    }
-
-    public class AvailableState : IBookState {
-        public void Handle(Book context) {
-            Console.WriteLine("Buku sekarang dipinjam.");
-            context.SetState(new BorrowedState());
-        }
-    }
-
-    public class BorrowedState : IBookState {
-        public void Handle(Book context) {
-            Console.WriteLine("Buku sedang dipinjam.");
-        }
-    }
-
     public class Book
     {
-        private IBookState states;
-        public void EnsureStateInit() {
-            if (states == null)
-            {
-                states = new AvailableState();// default bahwa buku tersedia.
-            }
-        }
-
-        public void SetState(IBookState state) {
-            states = state;
-        }
-
-        public void Request() {
-
-            EnsureStateInit();
-            states.Handle(this);
-        }
         public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
@@ -95,6 +61,11 @@ namespace DonaBookApi.Model
             if (IsVerified)
                 throw new InvalidOperationException("Book already verified.");
             IsVerified = true;
+        }
+
+        internal void SetState(IBookState.BorrowedState borrowedState)
+        {
+            throw new NotImplementedException();
         }
 
 
