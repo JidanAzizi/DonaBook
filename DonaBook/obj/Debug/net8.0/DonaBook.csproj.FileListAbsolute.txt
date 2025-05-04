@@ -3,3 +3,8 @@ C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.AssemblyInfoInputs.cache
 C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.AssemblyInfo.cs
 C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.csproj.CoreCompileInputs.cache
 C:\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.sourcelink.json
+C:\Users\ASUS\Source\Repos\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Source\Repos\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.AssemblyInfoInputs.cache
+C:\Users\ASUS\Source\Repos\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.AssemblyInfo.cs
+C:\Users\ASUS\Source\Repos\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Source\Repos\DonaBook\DonaBook\obj\Debug\net8.0\DonaBook.sourcelink.json

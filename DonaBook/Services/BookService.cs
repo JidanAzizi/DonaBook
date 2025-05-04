@@ -46,5 +46,14 @@ namespace kpl_tubes.Services
             var json = JsonSerializer.Serialize(books, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(filePath, json);
         }
+
+        public List<Book> Search(string? title = null, string? author = null, string? genre = null)
+        {
+            return books.Where(b =>
+                (string.IsNullOrEmpty(title) || b.Title.Contains(title, StringComparison.OrdinalIgnoreCase)) &&
+                (string.IsNullOrEmpty(author) || b.Author.Contains(author, StringComparison.OrdinalIgnoreCase)) &&
+                (string.IsNullOrEmpty(genre) || b.Genre.Contains(genre, StringComparison.OrdinalIgnoreCase))
+            ).ToList();
+        }
     }
 }

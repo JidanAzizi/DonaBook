@@ -133,6 +133,18 @@
         }
       }
     },
+    "/ConfigTest": {
+      "get": {
+        "tags": [
+          "ConfigTest"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User": {
       "get": {
         "tags": [

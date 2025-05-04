@@ -172,6 +172,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DonaBookApi.Controllers.ConfigTestController",
+    "Method": "GetConfig",
+    "RelativePath": "ConfigTest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DonaBookApi.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

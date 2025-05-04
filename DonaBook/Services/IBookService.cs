@@ -18,6 +18,9 @@ namespace Kpl_tubes.Services
             List<Book> GetAll();
             void Add(Book book);
             void Save();
+
+            // Tambahan fitur pencarian:
+            List<Book> Search(string? title = null, string? author = null, string? genre = null);
         }
     }
 }
