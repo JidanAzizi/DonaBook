@@ -1,0 +1,130 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace DonaBookApi.Model
+{
+    // ENUMS
+    public enum Genre
+    {
+        Fiction,
+        NonFiction,
+        ScienceFiction,
+        Fantasy,
+        Mystery,
+        Romance,
+        Horror,
+        Biography,
+        SelfHelp,
+        History,
+        Unknown
+    }
+
+    public enum Category
+    {
+        AnakAnak,
+        Remaja,
+        Dewasa,
+        Pendidikan,
+        Lainnya
+    }
+
+    public enum BookCondition
+    {
+        Baru,
+        BekasBaik,
+        BekasRusak
+    }
+
+    //Membuat interface IBookState untuk menerapkan State Design Pattern yang mana merupakan implementasi dari state-based
+    public interface IBookState {
+        void Handle(Book context);
+    }
+
+    public class AvailableState : IBookState {
+        public void Handle(Book context) {
+            Console.WriteLine("Buku sekarang dipinjam.");
+            context.SetState(new BorrowedState());
+        }
+    }
+
+    public class BorrowedState : IBookState {
+        public void Handle(Book context) {
+            Console.WriteLine("Buku sedang dipinjam.");
+        }
+    }
+
+    public class Book
+    {
+        private IBookState states;
+        public void EnsureStateInit() {
+            if (states == null)
+            {
+                states = new AvailableState();// default bahwa buku tersedia.
+            }
+        }
+
+        public void SetState(IBookState state) {
+            states = state;
+        }
+
+        public void Request() {
+
+            EnsureStateInit();
+            states.Handle(this);
+        }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string Publisher { get; set; }
+
+        public Genre Genre { get; set; }
+        public Category Category { get; set; }
+        public BookCondition Condition { get; set; }
+
+        public int Quantity { get; set; }
+        public bool IsVerified { get; set; }
+        public string? Review { get; set; }
+        public int Rating { get; set; }
+
+        // Constructor tanpa parameter untuk Swagger dan deserialisasi
+        public Book() { }
+
+        //Statebased
+        public void VerifyBook()
+        {
+            if (IsVerified)
+                throw new InvalidOperationException("Book already verified.");
+            IsVerified = true;
+        }
+
+
+        // Constructor utama dengan logika rating default
+        public Book(string title, string publisher, Genre genre, string author, Category category, BookCondition condition, int quantity, int donorId)
+        {
+            Title = title;
+            Publisher = publisher;
+            Genre = genre;
+            Author = author;
+            Category = category;
+            Condition = condition;
+            Quantity = quantity;
+            IsVerified = false;
+            Rating = GenreDefaultRatings.ContainsKey(genre) ? GenreDefaultRatings[genre] : 0;
+        }
+
+        // Table-driven rating default berdasarkan genre
+        private static readonly Dictionary<Genre, int> GenreDefaultRatings = new()
+        {
+            { Genre.Fiction, 5 },
+            { Genre.NonFiction, 4 },
+            { Genre.ScienceFiction, 4 },
+            { Genre.Fantasy, 5 },
+            { Genre.Mystery, 4 },
+            { Genre.Romance, 3 },
+            { Genre.Horror, 4 },
+            { Genre.Biography, 4 },
+            { Genre.SelfHelp, 3 },
+            { Genre.History, 4 }
+        };
+    }
+}
