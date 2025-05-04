@@ -36,10 +36,10 @@
     "Category": "dewasa",
     "Condition": "bekasBaik",
     "Quantity": 1,
-    "IsVerified": false,
+    "IsVerified": true,
     "Review": null,
     "Rating": 4,
-    "State": "draft"
+    "State": "verified"
   },
   {
     "Id": 4,
