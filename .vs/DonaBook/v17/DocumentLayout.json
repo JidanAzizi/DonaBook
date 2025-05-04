@@ -1,30 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\DonaBook\\",
+  "WorkspaceRootPath": "D:\\mikdam\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\donabook\\donabookapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{92982373-DC18-44BC-930E-1754D1EEFD8D}|DonaBook\\DonaBook.csproj|d:\\mikdam\\donabook\\donabook.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{92982373-DC18-44BC-930E-1754D1EEFD8D}|DonaBook\\DonaBook.csproj|solutionrelative:donabook\\donabook.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92982373-DC18-44BC-930E-1754D1EEFD8D}|DonaBook\\DonaBook.csproj|d:\\mikdam\\donabook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92982373-DC18-44BC-930E-1754D1EEFD8D}|DonaBook\\DonaBook.csproj|solutionrelative:donabook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92982373-DC18-44BC-930E-1754D1EEFD8D}|DonaBook\\DonaBook.csproj|d:\\mikdam\\donabook\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92982373-DC18-44BC-930E-1754D1EEFD8D}|DonaBook\\DonaBook.csproj|solutionrelative:donabook\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|d:\\mikdam\\donabookapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|D:\\mikdam\\donabookapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\donabook\\donabookapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|D:\\mikdam\\donabookapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\donabook\\donabookapi\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|D:\\mikdam\\donabookapi\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\donabook\\donabookapi\\data\\user.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|D:\\mikdam\\donabookapi\\data\\user.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\data\\user.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\donabook\\donabookapi\\data\\book.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|D:\\mikdam\\donabookapi\\data\\book.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\data\\book.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|c:\\donabook\\donabookapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}|DonaBookApi\\DonaBookApi.csproj|solutionrelative:donabookapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,20 +46,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Book.cs",
-              "DocumentMoniker": "C:\\DonaBook\\DonaBookApi\\Model\\Book.cs",
+              "DocumentMoniker": "D:\\mikdam\\DonaBookApi\\Model\\Book.cs",
               "RelativeDocumentMoniker": "DonaBookApi\\Model\\Book.cs",
-              "ToolTip": "C:\\DonaBook\\DonaBookApi\\Model\\Book.cs",
+              "ToolTip": "D:\\mikdam\\DonaBookApi\\Model\\Book.cs",
               "RelativeToolTip": "DonaBookApi\\Model\\Book.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwFEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T13:57:08.914Z",
               "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DonaBook",
+              "DocumentMoniker": "D:\\mikdam\\DonaBook\\DonaBook.csproj",
+              "RelativeDocumentMoniker": "DonaBook\\DonaBook.csproj",
+              "ToolTip": "D:\\mikdam\\DonaBook\\DonaBook.csproj",
+              "RelativeToolTip": "DonaBook\\DonaBook.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-04T13:19:31.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\mikdam\\DonaBook\\Program.cs",
+              "RelativeDocumentMoniker": "DonaBook\\Program.cs",
+              "ToolTip": "D:\\mikdam\\DonaBook\\Program.cs",
+              "RelativeToolTip": "DonaBook\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T13:21:42.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "D:\\mikdam\\DonaBook\\Services\\BookService.cs",
+              "RelativeDocumentMoniker": "DonaBook\\Services\\BookService.cs",
+              "ToolTip": "D:\\mikdam\\DonaBook\\Services\\BookService.cs",
+              "RelativeToolTip": "DonaBook\\Services\\BookService.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAA0wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T13:19:23.972Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -59,24 +110,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\DonaBook\\DonaBookApi\\Controllers\\UserController.cs",
+              "DocumentMoniker": "D:\\mikdam\\DonaBookApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "DonaBookApi\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\DonaBook\\DonaBookApi\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\mikdam\\DonaBookApi\\Controllers\\UserController.cs",
               "RelativeToolTip": "DonaBookApi\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowGkAAAAfAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T04:43:15.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T04:43:15.269Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "BookController.cs",
-              "DocumentMoniker": "C:\\DonaBook\\DonaBookApi\\Controllers\\BookController.cs",
+              "DocumentMoniker": "D:\\mikdam\\DonaBookApi\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "DonaBookApi\\Controllers\\BookController.cs",
-              "ToolTip": "C:\\DonaBook\\DonaBookApi\\Controllers\\BookController.cs",
+              "ToolTip": "D:\\mikdam\\DonaBookApi\\Controllers\\BookController.cs",
               "RelativeToolTip": "DonaBookApi\\Controllers\\BookController.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwCoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -84,11 +134,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "user.json",
-              "DocumentMoniker": "C:\\DonaBook\\DonaBookApi\\Data\\user.json",
+              "DocumentMoniker": "D:\\mikdam\\DonaBookApi\\Data\\user.json",
               "RelativeDocumentMoniker": "DonaBookApi\\Data\\user.json",
-              "ToolTip": "C:\\DonaBook\\DonaBookApi\\Data\\user.json",
+              "ToolTip": "D:\\mikdam\\DonaBookApi\\Data\\user.json",
               "RelativeToolTip": "DonaBookApi\\Data\\user.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -96,23 +146,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\DonaBook\\DonaBookApi\\Program.cs",
+              "DocumentMoniker": "D:\\mikdam\\DonaBookApi\\Program.cs",
               "RelativeDocumentMoniker": "DonaBookApi\\Program.cs",
-              "ToolTip": "C:\\DonaBook\\DonaBookApi\\Program.cs",
+              "ToolTip": "D:\\mikdam\\DonaBookApi\\Program.cs",
               "RelativeToolTip": "DonaBookApi\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAQwBYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:06:59.288Z"
+              "WhenOpened": "2025-05-03T16:06:59.288Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "book.json",
-              "DocumentMoniker": "C:\\DonaBook\\DonaBookApi\\Data\\book.json",
+              "DocumentMoniker": "D:\\mikdam\\DonaBookApi\\Data\\book.json",
               "RelativeDocumentMoniker": "DonaBookApi\\Data\\book.json",
-              "ToolTip": "C:\\DonaBook\\DonaBookApi\\Data\\book.json",
+              "ToolTip": "D:\\mikdam\\DonaBookApi\\Data\\book.json",
               "RelativeToolTip": "DonaBookApi\\Data\\book.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
