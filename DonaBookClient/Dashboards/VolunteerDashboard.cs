@@ -17,7 +17,9 @@ namespace DonaBookClient.Dashboards
 
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"\n--- MENU VOLUNTEER ({user.Name}) ---");
+                Console.ResetColor();
                 Console.WriteLine("1. Verifikasi Buku");
                 Console.WriteLine("2. Lihat Buku yang Sudah Diterima");
                 Console.WriteLine("3. Buat Laporan Buku");
@@ -37,9 +39,11 @@ namespace DonaBookClient.Dashboards
                         }
 
                         Console.WriteLine("\n📋 Buku Belum Diverifikasi:");
+                        Console.WriteLine($"{"ID",-4} {"Judul",-25} {"Penulis",-20} {"Qty",-5} {"Status",-10}");
+                        Console.WriteLine(new string('-', 70));
                         foreach (var b in pending)
                         {
-                            Console.WriteLine($"[{b.Id}] {b.Title} oleh {b.Author}");
+                            Console.WriteLine($"{b.Id,-4} {b.Title,-25} {b.Author,-20} {b.Quantity,-5} {b.State,-10}");
                         }
 
                         Console.Write("Masukkan ID buku yang ingin diverifikasi: ");
@@ -57,10 +61,12 @@ namespace DonaBookClient.Dashboards
                         var books = await bookService.GetVerifiedBooksAsync();
                         var taken = books.Where(b => b.Quantity == 0).ToList();
 
-                        Console.WriteLine("\n Buku yang Sudah Diterima (Quantity = 0):");
+                        Console.WriteLine("\n📚 Buku yang Sudah Diterima (Quantity = 0):");
+                        Console.WriteLine($"{"Judul",-30} {"Penulis",-25}");
+                        Console.WriteLine(new string('-', 60));
                         foreach (var b in taken)
                         {
-                            Console.WriteLine($"- {b.Title} oleh {b.Author}");
+                            Console.WriteLine($"{b.Title,-30} {b.Author,-25}");
                         }
                         break;
 
@@ -71,7 +77,7 @@ namespace DonaBookClient.Dashboards
                         int unverified = total - verified;
                         int donated = allBooks.Sum(b => b.Quantity);
 
-                        Console.WriteLine("\n Laporan Buku:");
+                        Console.WriteLine("\n📊 Laporan Buku:");
                         Console.WriteLine($"Total Buku         : {total}");
                         Console.WriteLine($"Buku Terverifikasi : {verified}");
                         Console.WriteLine($"Buku Belum Verif   : {unverified}");
@@ -79,15 +85,14 @@ namespace DonaBookClient.Dashboards
                         break;
 
                     case "0":
-                        Console.WriteLine(" Keluar dari dashboard Volunteer...");
+                        Console.WriteLine("Keluar dari dashboard Volunteer...");
                         return;
 
                     default:
-                        Console.WriteLine(" Pilihan tidak valid.");
+                        Console.WriteLine("Pilihan tidak valid.");
                         break;
                 }
             }
         }
     }
 }
-

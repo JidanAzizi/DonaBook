@@ -50,10 +50,10 @@
     "Category": "anakAnak",
     "Condition": "baru",
     "Quantity": 1,
-    "IsVerified": false,
+    "IsVerified": true,
     "Review": null,
     "Rating": 0,
-    "State": "draft"
+    "State": "verified"
   },
   {
     "Id": 5,
@@ -64,10 +64,10 @@
     "Category": "remaja",
     "Condition": "bekasBaik",
     "Quantity": 1,
-    "IsVerified": false,
+    "IsVerified": true,
     "Review": null,
     "Rating": 0,
-    "State": "draft"
+    "State": "verified"
   },
   {
     "Id": 6,
@@ -78,10 +78,10 @@
     "Category": "anakAnak",
     "Condition": "baru",
     "Quantity": 1,
-    "IsVerified": false,
+    "IsVerified": true,
     "Review": null,
     "Rating": 0,
-    "State": "submitted"
+    "State": "verified"
   },
   {
     "Id": 7,
@@ -95,6 +95,20 @@
     "IsVerified": false,
     "Review": null,
     "Rating": 0,
+    "State": "submitted"
+  },
+  {
+    "Id": 8,
+    "Title": "pe",
+    "Author": "pe",
+    "Publisher": "pe",
+    "Genre": "fiction",
+    "Category": "remaja",
+    "Condition": "baru",
+    "Quantity": 0,
+    "IsVerified": true,
+    "Review": "Bagus bangett ih suka aku",
+    "Rating": 5,
     "State": "draft"
   }
 ]

@@ -39,24 +39,70 @@ namespace DonaBookClient.Dashboards
                         break;
 
                     case "2":
-                        Console.Write("Judul: "); string? title = Console.ReadLine();
-                        Console.Write("Penulis: "); string? author = Console.ReadLine();
-                        Console.Write("Penerbit: "); string? publisher = Console.ReadLine();
-                        Console.Write("Genre (Fiction, History, SelfHelp, etc.): "); string? genre = Console.ReadLine();
-                        Console.Write("Kategori (AnakAnak, Remaja, Dewasa): "); string? category = Console.ReadLine();
-                        Console.Write("Kondisi (Baru, BekasBaik, BekasRusak): "); string? condition = Console.ReadLine();
+                        Console.Write("Judul: ");
+                        string? title = Console.ReadLine();
+                        if (string.IsNullOrWhiteSpace(title))
+                        {
+                            Console.WriteLine("❌ Judul tidak boleh kosong.");
+                            break;
+                        }
+
+                        Console.Write("Penulis: ");
+                        string? author = Console.ReadLine();
+                        if (string.IsNullOrWhiteSpace(author))
+                        {
+                            Console.WriteLine("❌ Penulis tidak boleh kosong.");
+                            break;
+                        }
+
+                        Console.Write("Penerbit: ");
+                        string? publisher = Console.ReadLine();
+                        if (string.IsNullOrWhiteSpace(publisher))
+                        {
+                            Console.WriteLine("❌ Penerbit tidak boleh kosong.");
+                            break;
+                        }
+
+                        Console.Write("Genre (Fiction, History, SelfHelp, etc.): ");
+                        string? genre = Console.ReadLine();
+                        if (!Enum.TryParse<Genre>(genre, true, out var parsedGenre))
+                        {
+                            Console.WriteLine("❌ Genre tidak valid.");
+                            break;
+                        }
+
+                        Console.Write("Kategori (AnakAnak, Remaja, Dewasa): ");
+                        string? category = Console.ReadLine();
+                        if (!Enum.TryParse<Category>(category, true, out var parsedCategory))
+                        {
+                            Console.WriteLine("❌ Kategori tidak valid.");
+                            break;
+                        }
+
+                        Console.Write("Kondisi (Baru, BekasBaik, BekasRusak): ");
+                        string? condition = Console.ReadLine();
+                        if (!Enum.TryParse<BookCondition>(condition, true, out var parsedCondition))
+                        {
+                            Console.WriteLine("❌ Kondisi buku tidak valid.");
+                            break;
+                        }
+
                         Console.Write("Jumlah: ");
                         string? qty = Console.ReadLine();
-                        int quantity = int.Parse(qty!);
+                        if (!int.TryParse(qty, out int quantity) || quantity <= 0)
+                        {
+                            Console.WriteLine("❌ Jumlah harus berupa angka positif.");
+                            break;
+                        }
 
                         var book = new Book
                         {
-                            Title = title!,
-                            Author = author!,
-                            Publisher = publisher!,
-                            Genre = Enum.Parse<Genre>(genre!, ignoreCase: true),
-                            Category = Enum.Parse<Category>(category!, ignoreCase: true),
-                            Condition = Enum.Parse<BookCondition>(condition!, ignoreCase: true),
+                            Title = title,
+                            Author = author,
+                            Publisher = publisher,
+                            Genre = parsedGenre,
+                            Category = parsedCategory,
+                            Condition = parsedCondition,
                             Quantity = quantity
                         };
 
@@ -66,7 +112,7 @@ namespace DonaBookClient.Dashboards
 
                     case "3":
                         var books = (await bookService.GetAllBooksAsync()).Where(b => !b.IsVerified).ToList();
-                        foreach(var b in books)
+                        foreach (var b in books)
                         {
                             Console.WriteLine($"[{b.Id}] {b.Title} oleh {b.Author}");
                         }
@@ -76,7 +122,16 @@ namespace DonaBookClient.Dashboards
                             Console.WriteLine("ID tidak valid.");
                             break;
                         }
-                        await bookService.SubmitAsync(books.Where(b => b.Id == bookId).FirstOrDefault()!);
+
+                        var bookToSubmit = books.FirstOrDefault(b => b.Id == bookId);
+                        if (bookToSubmit == null)
+                        {
+                            Console.WriteLine("❌ Buku tidak ditemukan.");
+                            break;
+                        }
+
+                        await bookService.SubmitAsync(bookToSubmit);
+                        Console.WriteLine($"✅ Buku \"{bookToSubmit.Title}\" telah berhasil diajukan dan menunggu verifikasi.");
                         break;
 
                     case "4":
