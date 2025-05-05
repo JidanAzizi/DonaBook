@@ -12,7 +12,7 @@ Console.Write("Password: ");
 string password = Console.ReadLine() ?? "";
 
 var userService = new UserApiService();
-var user = await userService.LoginAsync(email, password);
+var user = await     userService.LoginAsync(email, password);
 
 if (user == null)
 {
