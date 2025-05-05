@@ -1,8 +1,10 @@
 ﻿using DonaBookApi.Model;
+using DonaBookApi.Models;
+using DonaBookClient.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using DonaBookClient.Models;
 
 namespace DonaBookApi.Controllers
 {
@@ -10,7 +12,14 @@ namespace DonaBookApi.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private readonly string _filePath = Path.Combine("Data", "book.json");
+        private readonly BookSettings _settings;
+        private readonly LocalizationSettings _langSettings;
+
+        public BookController(IOptions<BookSettings> settings, IOptions<LocalizationSettings> langSettings)
+        {
+            _settings = settings.Value;
+            _langSettings = langSettings.Value;
+        }
 
         private JsonSerializerOptions JsonOptions => new()
         {
@@ -19,18 +28,41 @@ namespace DonaBookApi.Controllers
             Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
         };
 
+        private readonly Dictionary<string, Dictionary<string, string>> _messages = new()
+        {
+            ["en"] = new()
+            {
+                ["SubmitSuccess"] = "Book submitted.",
+                ["VerifySuccess"] = "Book verified.",
+                ["RejectSuccess"] = "Book rejected.",
+                ["ReviewAdded"] = "Review added.",
+                ["NotFound"] = "Book not found.",
+                ["ReviewTooLong"] = "Review too long."
+            },
+            ["id"] = new()
+            {
+                ["SubmitSuccess"] = "Buku berhasil dikirim.",
+                ["VerifySuccess"] = "Buku berhasil diverifikasi.",
+                ["RejectSuccess"] = "Buku ditolak.",
+                ["ReviewAdded"] = "Ulasan berhasil ditambahkan.",
+                ["NotFound"] = "Buku tidak ditemukan.",
+                ["ReviewTooLong"] = "Ulasan terlalu panjang."
+            }
+        };
+
         private List<Book> LoadBooks()
         {
-            if (!System.IO.File.Exists(_filePath))
+            if (!System.IO.File.Exists(_settings.FilePath))
                 return new List<Book>();
-            var json = System.IO.File.ReadAllText(_filePath);
+
+            var json = System.IO.File.ReadAllText(_settings.FilePath);
             return JsonSerializer.Deserialize<List<Book>>(json, JsonOptions) ?? new List<Book>();
         }
 
         private void SaveBooks(List<Book> books)
         {
             var json = JsonSerializer.Serialize(books, JsonOptions);
-            System.IO.File.WriteAllText(_filePath, json);
+            System.IO.File.WriteAllText(_settings.FilePath, json);
         }
 
         [HttpGet]
@@ -41,7 +73,7 @@ namespace DonaBookApi.Controllers
         {
             var books = LoadBooks();
             var book = books.FirstOrDefault(b => b.Id == id);
-            return book is null ? NotFound() : Ok(book);
+            return book is null ? NotFound(_messages[_langSettings.Language]["NotFound"]) : Ok(book);
         }
 
         [HttpPost]
@@ -59,13 +91,13 @@ namespace DonaBookApi.Controllers
         {
             var books = LoadBooks();
             var book = books.FirstOrDefault(b => b.Id == id);
-            if (book == null) return NotFound();
+            if (book == null) return NotFound(_messages[_langSettings.Language]["NotFound"]);
 
             try
             {
                 book.Submit();
                 SaveBooks(books);
-                return Ok("Book submitted.");
+                return Ok(_messages[_langSettings.Language]["SubmitSuccess"]);
             }
             catch (Exception ex)
             {
@@ -78,13 +110,13 @@ namespace DonaBookApi.Controllers
         {
             var books = LoadBooks();
             var book = books.FirstOrDefault(b => b.Id == id);
-            if (book == null) return NotFound();
+            if (book == null) return NotFound(_messages[_langSettings.Language]["NotFound"]);
 
             try
             {
                 book.Verify();
                 SaveBooks(books);
-                return Ok("Book verified.");
+                return Ok(_messages[_langSettings.Language]["VerifySuccess"]);
             }
             catch (Exception ex)
             {
@@ -97,13 +129,13 @@ namespace DonaBookApi.Controllers
         {
             var books = LoadBooks();
             var book = books.FirstOrDefault(b => b.Id == id);
-            if (book == null) return NotFound();
+            if (book == null) return NotFound(_messages[_langSettings.Language]["NotFound"]);
 
             try
             {
                 book.Reject();
                 SaveBooks(books);
-                return Ok("Book rejected.");
+                return Ok(_messages[_langSettings.Language]["RejectSuccess"]);
             }
             catch (Exception ex)
             {
@@ -114,13 +146,16 @@ namespace DonaBookApi.Controllers
         [HttpPost("review/{id}")]
         public IActionResult Review(int id, [FromBody] ReviewRequest input)
         {
+            if (input.Review.Length > _settings.MaxReviewLength)
+                return BadRequest(_messages[_langSettings.Language]["ReviewTooLong"]);
+
             var books = LoadBooks();
             var book = books.FirstOrDefault(b => b.Id == id);
-            if (book == null) return NotFound();
+            if (book == null) return NotFound(_messages[_langSettings.Language]["NotFound"]);
 
             book.AddReview(input.Review, input.Rating);
             SaveBooks(books);
-            return Ok("Review added.");
+            return Ok(_messages[_langSettings.Language]["ReviewAdded"]);
         }
 
         [HttpDelete("{id}")]
@@ -128,7 +163,7 @@ namespace DonaBookApi.Controllers
         {
             var books = LoadBooks();
             var book = books.FirstOrDefault(b => b.Id == id);
-            if (book == null) return NotFound();
+            if (book == null) return NotFound(_messages[_langSettings.Language]["NotFound"]);
 
             books.Remove(book);
             SaveBooks(books);

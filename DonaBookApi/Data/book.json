@@ -1,19 +1,5 @@
 [
   {
-    "Id": 1,
-    "Title": "Laskar Pelangi",
-    "Author": "Andrea Hirata",
-    "Publisher": "Bentang Pustaka",
-    "Genre": "fiction",
-    "Category": "remaja",
-    "Condition": "bekasBaik",
-    "Quantity": 2,
-    "IsVerified": true,
-    "Review": null,
-    "Rating": 5,
-    "State": "verified"
-  },
-  {
     "Id": 2,
     "Title": "Atomic Habits",
     "Author": "James Clear",
@@ -23,8 +9,8 @@
     "Condition": "baru",
     "Quantity": 1,
     "IsVerified": true,
-    "Review": "Buku sangat bermanfaat untuk perubahan kebiasaan",
-    "Rating": 3,
+    "Review": "string",
+    "Rating": 0,
     "State": "verified"
   },
   {
@@ -96,5 +82,19 @@
     "Review": null,
     "Rating": 0,
     "State": "draft"
+  },
+  {
+    "Id": 8,
+    "Title": "Laskar Pelangi",
+    "Author": "Andrea Hirata",
+    "Publisher": "Bentang Pustaka",
+    "Genre": "fiction",
+    "Category": "remaja",
+    "Condition": "bekasBaik",
+    "Quantity": 1,
+    "IsVerified": true,
+    "Review": "sangat bagus",
+    "Rating": 5,
+    "State": "verified"
   }
 ]
