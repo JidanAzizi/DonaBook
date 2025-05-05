@@ -14,20 +14,6 @@
     "State": "verified"
   },
   {
-    "Id": 2,
-    "Title": "Atomic Habits",
-    "Author": "James Clear",
-    "Publisher": "Penguin",
-    "Genre": "selfHelp",
-    "Category": "dewasa",
-    "Condition": "baru",
-    "Quantity": 1,
-    "IsVerified": true,
-    "Review": "Buku sangat bermanfaat untuk perubahan kebiasaan",
-    "Rating": 3,
-    "State": "verified"
-  },
-  {
     "Id": 3,
     "Title": "Sapiens",
     "Author": "Yuval Noah Harari",
@@ -110,5 +96,19 @@
     "Review": "Bagus bangett ih suka aku",
     "Rating": 5,
     "State": "draft"
+  },
+  {
+    "Id": 9,
+    "Title": "Atomic Habits",
+    "Author": "James Clear",
+    "Publisher": "Penguin",
+    "Genre": "selfHelp",
+    "Category": "dewasa",
+    "Condition": "baru",
+    "Quantity": 0,
+    "IsVerified": true,
+    "Review": "Buku sangat bermanfaat untuk perubahan kebiasaan",
+    "Rating": 3,
+    "State": "verified"
   }
 ]
