@@ -31,7 +31,7 @@ namespace DonaBookClient.Dashboards
                 {
                     case "1":
                         var verifiedBooks = await bookService.GetVerifiedBooksAsync();
-                        Console.WriteLine("\n📚 Buku Terverifikasi:");
+                        Console.WriteLine("\n Buku Terverifikasi:");
                         foreach (var b in verifiedBooks)
                         {
                             Console.WriteLine($"- [{b.Id}] {b.Title} oleh {b.Author} ({b.Genre})");
@@ -43,7 +43,7 @@ namespace DonaBookClient.Dashboards
                         string? title = Console.ReadLine();
                         if (string.IsNullOrWhiteSpace(title))
                         {
-                            Console.WriteLine("❌ Judul tidak boleh kosong.");
+                            Console.WriteLine(" Judul tidak boleh kosong.");
                             break;
                         }
 
@@ -51,7 +51,7 @@ namespace DonaBookClient.Dashboards
                         string? author = Console.ReadLine();
                         if (string.IsNullOrWhiteSpace(author))
                         {
-                            Console.WriteLine("❌ Penulis tidak boleh kosong.");
+                            Console.WriteLine(" Penulis tidak boleh kosong.");
                             break;
                         }
 
@@ -59,7 +59,7 @@ namespace DonaBookClient.Dashboards
                         string? publisher = Console.ReadLine();
                         if (string.IsNullOrWhiteSpace(publisher))
                         {
-                            Console.WriteLine("❌ Penerbit tidak boleh kosong.");
+                            Console.WriteLine(" Penerbit tidak boleh kosong.");
                             break;
                         }
 
@@ -67,7 +67,7 @@ namespace DonaBookClient.Dashboards
                         string? genre = Console.ReadLine();
                         if (!Enum.TryParse<Genre>(genre, true, out var parsedGenre))
                         {
-                            Console.WriteLine("❌ Genre tidak valid.");
+                            Console.WriteLine(" Genre tidak valid.");
                             break;
                         }
 
@@ -75,7 +75,7 @@ namespace DonaBookClient.Dashboards
                         string? category = Console.ReadLine();
                         if (!Enum.TryParse<Category>(category, true, out var parsedCategory))
                         {
-                            Console.WriteLine("❌ Kategori tidak valid.");
+                            Console.WriteLine(" Kategori tidak valid.");
                             break;
                         }
 
@@ -83,7 +83,7 @@ namespace DonaBookClient.Dashboards
                         string? condition = Console.ReadLine();
                         if (!Enum.TryParse<BookCondition>(condition, true, out var parsedCondition))
                         {
-                            Console.WriteLine("❌ Kondisi buku tidak valid.");
+                            Console.WriteLine(" Kondisi buku tidak valid.");
                             break;
                         }
 
@@ -91,7 +91,7 @@ namespace DonaBookClient.Dashboards
                         string? qty = Console.ReadLine();
                         if (!int.TryParse(qty, out int quantity) || quantity <= 0)
                         {
-                            Console.WriteLine("❌ Jumlah harus berupa angka positif.");
+                            Console.WriteLine(" Jumlah harus berupa angka positif.");
                             break;
                         }
 
@@ -107,7 +107,7 @@ namespace DonaBookClient.Dashboards
                         };
 
                         await bookService.DonateBookAsync(book);
-                        Console.WriteLine("✅ Donasi berhasil ditambahkan.");
+                        Console.WriteLine(" Donasi berhasil ditambahkan.");
                         break;
 
                     case "3":
@@ -126,12 +126,12 @@ namespace DonaBookClient.Dashboards
                         var bookToSubmit = books.FirstOrDefault(b => b.Id == bookId);
                         if (bookToSubmit == null)
                         {
-                            Console.WriteLine("❌ Buku tidak ditemukan.");
+                            Console.WriteLine(" Buku tidak ditemukan.");
                             break;
                         }
 
                         await bookService.SubmitAsync(bookToSubmit);
-                        Console.WriteLine($"✅ Buku \"{bookToSubmit.Title}\" telah berhasil diajukan dan menunggu verifikasi.");
+                        Console.WriteLine($" Buku \"{bookToSubmit.Title}\" telah berhasil diajukan dan menunggu verifikasi.");
                         break;
 
                     case "4":
@@ -146,7 +146,7 @@ namespace DonaBookClient.Dashboards
                         {
                             foreach (var b in reviewed)
                             {
-                                Console.WriteLine($"\n📖 {b.Title}");
+                                Console.WriteLine($"\n {b.Title}");
                                 Console.WriteLine($"   Review: {b.Review}");
                                 Console.WriteLine($"   Rating: {b.Rating}/5");
                             }
@@ -154,11 +154,11 @@ namespace DonaBookClient.Dashboards
                         break;
 
                     case "0":
-                        Console.WriteLine("🔚 Keluar dari dashboard Donatur...");
+                        Console.WriteLine(" Keluar dari dashboard Donatur...");
                         return;
 
                     default:
-                        Console.WriteLine("⚠️ Pilihan tidak valid.");
+                        Console.WriteLine("⚠ Pilihan tidak valid.");
                         break;
                 }
             }

@@ -38,7 +38,7 @@ namespace DonaBookClient.Dashboards
                             break;
                         }
 
-                        Console.WriteLine("\n📋 Buku Belum Diverifikasi:");
+                        Console.WriteLine("\n Buku Belum Diverifikasi:");
                         Console.WriteLine($"{"ID",-4} {"Judul",-25} {"Penulis",-20} {"Qty",-5} {"Status",-10}");
                         Console.WriteLine(new string('-', 70));
                         foreach (var b in pending)
@@ -54,7 +54,7 @@ namespace DonaBookClient.Dashboards
                         }
 
                         var success = await bookService.VerifyBookAsync(verifId);
-                        Console.WriteLine(success ? "✅ Buku berhasil diverifikasi." : "❌ Gagal verifikasi buku.");
+                        Console.WriteLine(success ? " Buku berhasil diverifikasi." : " Gagal verifikasi buku.");
                         break;
 
                     case "2":
@@ -77,7 +77,7 @@ namespace DonaBookClient.Dashboards
                         int unverified = total - verified;
                         int donated = allBooks.Sum(b => b.Quantity);
 
-                        Console.WriteLine("\n📊 Laporan Buku:");
+                        Console.WriteLine("\n Laporan Buku:");
                         Console.WriteLine($"Total Buku         : {total}");
                         Console.WriteLine($"Buku Terverifikasi : {verified}");
                         Console.WriteLine($"Buku Belum Verif   : {unverified}");

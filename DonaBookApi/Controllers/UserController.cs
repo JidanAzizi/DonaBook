@@ -33,11 +33,11 @@ namespace DonaBookApi.Controllers
             System.IO.File.WriteAllText(_filePath, json);
         }
 
-        // GET: api/user
+        
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetAll() => Ok(LoadUsers());
 
-        // GET: api/user/1
+     
         [HttpGet("{id}")]
         public ActionResult<User> GetById(int id)
         {
@@ -54,7 +54,7 @@ namespace DonaBookApi.Controllers
             if (users.Any(u => u.Email == newUser.Email))
                 return Conflict("Email sudah terdaftar.");
 
-            // ✅ Validasi role
+        
             var allowedRoles = new[] { "donatur", "penerima", "volunteer" };
             if (!allowedRoles.Contains(newUser.Role!.ToLower()))
                 return BadRequest("Role harus salah satu dari: donatur, penerima, volunteer.");

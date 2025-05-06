@@ -19,27 +19,26 @@ namespace DonaBookClient.Services
             _client = api.Client;
         }
 
-        // GET /api/book
+        
         public async Task<List<Book>> GetAllBooksAsync()
         {
             return await _client.GetFromJsonAsync<List<Book>>("/api/Book") ?? new List<Book>();
         }
 
-        // Filter buku yang sudah diverifikasi
+       
         public async Task<List<Book>> GetVerifiedBooksAsync()
         {
             var books = await GetAllBooksAsync();
             return books.Where(b => b.IsVerified).ToList();
         }
 
-        // POST /api/book
         public async Task DonateBookAsync(Book book)
         {
             var response = await _client.PostAsJsonAsync("/api/Book", book);
             response.EnsureSuccessStatusCode();
         }
 
-        // Simulasi pengambilan buku
+       
         public async Task<bool> TakeBookAsync(int id)
         {
             var books = await GetAllBooksAsync();
@@ -50,13 +49,13 @@ namespace DonaBookClient.Services
 
             book.Quantity--;
 
-            // Karena belum ada PUT endpoint, lakukan delete lalu post ulang
+           
             await _client.DeleteAsync($"/api/book/{id}");
             var response = await _client.PostAsJsonAsync("/api/Book", book);
             return response.IsSuccessStatusCode;
         }
 
-        // Submit review untuk buku
+        
         public async Task<bool> SubmitReviewAsync(int id, string review, int rating)
         {
             var payload = new

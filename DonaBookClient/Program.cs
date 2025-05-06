@@ -3,7 +3,7 @@ using DonaBookClient.Services;
 using DonaBookClient.Dashboards;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
-Console.WriteLine("📚 SELAMAT DATANG DI DONA BOOK📚");
+Console.WriteLine(" SELAMAT DATANG DI DONA BOOK");
 
 Console.Write("Email: ");
 string email = Console.ReadLine() ?? "";
@@ -29,11 +29,11 @@ switch (user.Role.ToLower())
         break;
 
     case "penerima":
-        await PenerimaDashboard.ShowAsync(user);  // ← implementasi selanjutnya
+        await PenerimaDashboard.ShowAsync(user);  
         break;
 
     case "volunteer":
-        await VolunteerDashboard.ShowAsync(user); // ← implementasi selanjutnya
+        await VolunteerDashboard.ShowAsync(user); 
         break;
 
     default:

@@ -75,7 +75,7 @@ namespace DonaBookClient.Dashboards
                         int rating = int.TryParse(Console.ReadLine(), out int r) ? r : 0;
 
                         bool reviewed = await bookService.SubmitReviewAsync(reviewId, reviewText, rating);
-                        Console.WriteLine(reviewed ? "✅ Review berhasil dikirim." : "❌ Gagal mengirim review.");
+                        Console.WriteLine(reviewed ? "Review berhasil dikirim." : " Gagal mengirim review.");
                         break;
 
                     case "0":

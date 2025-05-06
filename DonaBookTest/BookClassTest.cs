@@ -11,6 +11,7 @@ namespace DonaBookTests
     {
         [Theory]
         [InlineData(Genre.Fiction, 5)]
+//[InlineData(Genre.Fiction, 5)]
         [InlineData(Genre.NonFiction, 4)]
         [InlineData(Genre.ScienceFiction, 4)]
         [InlineData(Genre.Fantasy, 5)]
@@ -48,6 +49,8 @@ namespace DonaBookTests
         public void Constructor_ShouldInitializeHttpClientWithCorrectBaseAddress()
         {
             // Arrange
+            //Client.BaseAddress = new Uri("https://api.lain.com/");
+
             var expectedBaseUri = new Uri("https://example.com/api/");
 
             // Act
