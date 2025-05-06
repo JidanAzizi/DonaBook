@@ -618,23 +618,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Naufal\\.nuget\\packages\\": {},
+    "C:\\Users\\Idan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Naufal\\Videos\\DonaBook\\DonaBook\\DonaBookClient\\DonaBookClient.csproj",
+      "projectUniqueName": "C:\\Users\\Idan\\Documents\\DonaBook\\DonaBookClient\\DonaBookClient.csproj",
       "projectName": "DonaBookClient",
-      "projectPath": "C:\\Users\\Naufal\\Videos\\DonaBook\\DonaBook\\DonaBookClient\\DonaBookClient.csproj",
-      "packagesPath": "C:\\Users\\Naufal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Naufal\\Videos\\DonaBook\\DonaBook\\DonaBookClient\\obj\\",
+      "projectPath": "C:\\Users\\Idan\\Documents\\DonaBook\\DonaBookClient\\DonaBookClient.csproj",
+      "packagesPath": "C:\\Users\\Idan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Idan\\Documents\\DonaBook\\DonaBookClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Naufal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Idan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
