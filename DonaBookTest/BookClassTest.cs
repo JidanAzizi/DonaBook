@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using DonaBookClient.Models;
+using DonaBookClient.Services;
 using Xunit;
 
 namespace DonaBookTests
@@ -19,10 +22,7 @@ namespace DonaBookTests
         [InlineData(Genre.History, 4)]
         public void GenreDefaultRatings_ShouldContainCorrectValues(Genre genre, int expectedRating)
         {
-            // Act
             var defaultRatings = GetGenreDefaultRatings();
-
-            // Assert
             Assert.True(defaultRatings.ContainsKey(genre));
             Assert.Equal(expectedRating, defaultRatings[genre]);
         }
@@ -30,19 +30,34 @@ namespace DonaBookTests
         [Fact]
         public void GenreDefaultRatings_ShouldNotContainUnknownGenre()
         {
-            // Act
             var defaultRatings = GetGenreDefaultRatings();
-
-            // Assert
             Assert.False(defaultRatings.ContainsKey(Genre.Unknown));
         }
 
         private static Dictionary<Genre, int> GetGenreDefaultRatings()
         {
-            // Access the private static field using reflection
             var field = typeof(Book).GetField("GenreDefaultRatings",
                 System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-            return (Dictionary<Genre, int>)field.GetValue(null)!;
+            return (Dictionary<Genre, int>)field!.GetValue(null)!;
+        }
+    }
+
+    public class ApiClientTests
+    {
+        [Fact]
+        public void Constructor_ShouldInitializeHttpClientWithCorrectBaseAddress()
+        {
+            // Arrange
+            var expectedBaseUri = new Uri("https://example.com/api/");
+
+            // Act
+            var apiClient = new ApiClient();
+            var actualBaseUri = apiClient.Client.BaseAddress;
+
+            // Assert
+            Assert.NotNull(apiClient.Client);
+            Assert.Equal(expectedBaseUri, actualBaseUri);
+            Assert.Contains("application/json", apiClient.Client.DefaultRequestHeaders.Accept.ToString());
         }
     }
 }

@@ -16,6 +16,11 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DonaBookApi\DonaBookApi.csproj" />
     <ProjectReference Include="..\DonaBookClient\DonaBookClient.csproj" />
