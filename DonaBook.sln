@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonaBookClient", "DonaBookC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonaBookTest", "DonaBookTest\DonaBookTest.csproj", "{4BBC7A52-F8F8-4425-AA29-4A2A4C8E6585}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonaBookGui", "DonaBookGui\DonaBookGui.csproj", "{939A2297-FE2C-46DB-8B9E-217122E44488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4BBC7A52-F8F8-4425-AA29-4A2A4C8E6585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BBC7A52-F8F8-4425-AA29-4A2A4C8E6585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BBC7A52-F8F8-4425-AA29-4A2A4C8E6585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939A2297-FE2C-46DB-8B9E-217122E44488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939A2297-FE2C-46DB-8B9E-217122E44488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939A2297-FE2C-46DB-8B9E-217122E44488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939A2297-FE2C-46DB-8B9E-217122E44488}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DonaBookApi\DonaBookApi.csproj" />
+    <ProjectReference Include="..\DonaBookClient\DonaBookClient.csproj" />
+    <ProjectReference Include="..\DonaBookTest\DonaBookTest.csproj" />
+  </ItemGroup>
+
+</Project>
