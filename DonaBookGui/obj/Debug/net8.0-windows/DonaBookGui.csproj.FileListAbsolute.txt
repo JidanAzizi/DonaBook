@@ -1,0 +1,8 @@
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.csproj.AssemblyReference.cache
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.Forms.Auth.LoginForm.resources
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.csproj.GenerateResource.cache
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.AssemblyInfoInputs.cache
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.AssemblyInfo.cs
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.csproj.CoreCompileInputs.cache
+C:\Users\Naufal\Documents\KPL\DonaBook\DonaBookGui\obj\Debug\net8.0-windows\DonaBookGui.sourcelink.json
