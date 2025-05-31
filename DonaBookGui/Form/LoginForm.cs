@@ -1,57 +1,95 @@
 using System;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
+
+using DonaBookGui.Forms.Auth;
+using DonaBookGui.Forms.Donatur;
+using DonaBookGui.Forms.Penerima;
+using DonaBookGui.Forms.Volunteer;
+using DonaBookGui.Models;
+using DonaBookGui.Services;
 
 namespace DonaBookGui.Forms.Auth
 {
     public partial class LoginForm : Form
     {
+        private readonly HttpClient _httpClient = new HttpClient
+        {
+            BaseAddress = new Uri("http://localhost:5141/")
+        };
+
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            // TODO: Implementasi logika login
-            // Contoh: Validasi input
-            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+            var email = txtUsername.Text;
+            var password = txtPassword.Text;
+
+            var loginData = new { Email = email, Password = password };
+
+            var json = JsonSerializer.Serialize(loginData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
             {
-                MessageBox.Show("Username dan Password tidak boleh kosong.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                var response = await _httpClient.PostAsync("api/user/login", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    var loginResult = JsonSerializer.Deserialize<LoginResult>(responseBody, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+
+                    Session.CurrentUser = loginResult;
+
+                    MessageBox.Show($"Login berhasil sebagai {loginResult.Role}!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Buka form dashboard sesuai role
+                    switch (loginResult.Role.ToLower())
+                    {
+                        case "donatur":
+                            new Donatur.Donatur().Show();
+                            break;
+                        case "penerima":
+                            new Penerima.Penerima().Show();
+                            break;
+                        case "volunteer":
+                            new VolunteerForm().Show();
+                            break;
+                        default:
+                            MessageBox.Show("Role tidak dikenali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                    }
+
+                    this.Hide();
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Login gagal: " + error, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
-            // Contoh: Panggil service otentikasi
-            // bool isAuthenticated = AuthenticationService.Login(txtUsername.Text, txtPassword.Text);
-            // if (isAuthenticated)
-            // {
-            //    MessageBox.Show("Login Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    // Buka form utama
-            //    MainForm mainForm = new MainForm();
-            //    mainForm.Show();
-            //    this.Hide(); // atau this.Close();
-            // }
-            // else
-            // {
-            //    MessageBox.Show("Username atau Password salah.", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            // }
-
-            MessageBox.Show($"Login attempt with Username: {txtUsername.Text}", "Login Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // Untuk sekarang, kita tutup saja form loginnya sebagai placeholder
-            // this.Close(); 
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kesalahan koneksi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Buka form register
-            RegisterForm registerForm = new RegisterForm();
-            registerForm.ShowDialog(); // Tampilkan sebagai dialog agar fokus
-            // Atau, jika Anda ingin menutup login form dan membuka register:
-            // this.Hide();
-            // registerForm.Show();
-            // registerForm.FormClosed += (s, args) => this.Close(); // Tutup login form jika register ditutup
+            new RegisterForm().Show();
+            this.Hide();
         }
 
-        private void lblTitle_Click(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
 
         }

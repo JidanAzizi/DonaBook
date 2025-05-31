@@ -1,56 +1,75 @@
 ﻿using System;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace DonaBookGui.Forms.Auth
 {
     public partial class RegisterForm : Form
     {
+        private readonly HttpClient _httpClient = new HttpClient
+        {
+            BaseAddress = new Uri("http://localhost:5141/") 
+        };
+
         public RegisterForm()
         {
             InitializeComponent();
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private async void btnRegister_Click(object sender, EventArgs e)
         {
-            // Ambil input user
-            string namaLengkap = txtNamaLengkap.Text.Trim();
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text;
-            string konfirmasiPassword = txtKonfirmasiPassword.Text;
-
-            // Validasi sederhana
-            if (string.IsNullOrEmpty(namaLengkap) || string.IsNullOrEmpty(username) ||
-                string.IsNullOrEmpty(password) || string.IsNullOrEmpty(konfirmasiPassword))
+            if (txtPassword.Text != txtKonfirmasiPassword.Text)
             {
-                MessageBox.Show("Semua field harus diisi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Password dan konfirmasi tidak cocok.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (password != konfirmasiPassword)
+            if (cmbRole.SelectedItem == null)
             {
-                MessageBox.Show("Password dan konfirmasi password tidak cocok.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Simpan user ke database (nanti kamu bisa ganti bagian ini)
-            MessageBox.Show("Registrasi berhasil!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var user = new
+            {
+                Name = txtNamaLengkap.Text,
+                Email = txtUsername.Text,
+                Password = txtPassword.Text,
+                Address = txtAlamat.Text,
+                Contact = txtKontak.Text,
+                Role = cmbRole.SelectedItem.ToString()
+            };
 
-            // Arahkan kembali ke login
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            this.Hide();
+            var json = JsonSerializer.Serialize(user);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await _httpClient.PostAsync("api/user/register", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Registrasi berhasil! Silakan login.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new LoginForm().Show();
+                    this.Hide();
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Registrasi gagal: " + error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kesalahan koneksi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            new LoginForm().Show();
             this.Hide();
-        }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
