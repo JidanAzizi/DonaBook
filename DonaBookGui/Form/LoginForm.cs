@@ -1,59 +1,77 @@
 using System;
 using System.Windows.Forms;
 
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Windows.Forms;
+
 namespace DonaBookGui.Forms.Auth
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        private readonly HttpClient _httpClient = new HttpClient
         {
-            InitializeComponent();
-        }
+            BaseAddress = new Uri("http://localhost:5141/")
+        };
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            // TODO: Implementasi logika login
-            // Contoh: Validasi input
-            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+            var email = txtUsername.Text;
+            var password = txtPassword.Text;
+
+            var loginData = new
             {
-                MessageBox.Show("Username dan Password tidak boleh kosong.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                Email = email,
+                Password = password
+            };
+
+            var json = JsonSerializer.Serialize(loginData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await _httpClient.PostAsync("api/user/login", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    var loginResult = JsonSerializer.Deserialize<LoginResult>(responseBody, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                    MessageBox.Show("Login berhasil!\nRedirect: " + loginResult.Redirect);
+                    //tinggal masukin form dashboard sesuai role guys
+                    // buka form sesuai role
+                    // if (loginResult.Role == "donatur") new DonaturForm().Show(); (ini kayak nya pemanggilan suatu form nya oke aman lah ya cihuy rawrrrr krakatau)
+                    // this.Hide();
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Login gagal: " + error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
-            // Contoh: Panggil service otentikasi
-            // bool isAuthenticated = AuthenticationService.Login(txtUsername.Text, txtPassword.Text);
-            // if (isAuthenticated)
-            // {
-            //    MessageBox.Show("Login Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    // Buka form utama
-            //    MainForm mainForm = new MainForm();
-            //    mainForm.Show();
-            //    this.Hide(); // atau this.Close();
-            // }
-            // else
-            // {
-            //    MessageBox.Show("Username atau Password salah.", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            // }
-
-            MessageBox.Show($"Login attempt with Username: {txtUsername.Text}", "Login Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // Untuk sekarang, kita tutup saja form loginnya sebagai placeholder
-            // this.Close(); 
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan koneksi: " + ex.Message);
+            }
         }
-
         private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Buka form register
-            RegisterForm registerForm = new RegisterForm();
-            registerForm.ShowDialog(); // Tampilkan sebagai dialog agar fokus
-            // Atau, jika Anda ingin menutup login form dan membuka register:
-            // this.Hide();
-            // registerForm.Show();
-            // registerForm.FormClosed += (s, args) => this.Close(); // Tutup login form jika register ditutup
+            new RegisterForm().Show();
+            this.Hide();
         }
 
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
 
+        private class LoginResult
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Role { get; set; }
+            public string Redirect { get; set; }
         }
     }
 }
