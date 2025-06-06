@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Source\\Repos\\DonaBook\\DonaBook\\DonaBook.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\source\\DonaBook\\DonaBook\\DonaBook.csproj",
       "projectName": "DonaBook",
-      "projectPath": "C:\\Users\\ASUS\\Source\\Repos\\DonaBook\\DonaBook\\DonaBook.csproj",
+      "projectPath": "C:\\Users\\ASUS\\source\\DonaBook\\DonaBook\\DonaBook.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Source\\Repos\\DonaBook\\DonaBook\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\source\\DonaBook\\DonaBook\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -453,11 +453,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Source\\Repos\\DonaBook\\DonaBookApi\\DonaBookApi.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\source\\DonaBook\\DonaBookApi\\DonaBookApi.csproj",
       "projectName": "DonaBookApi",
-      "projectPath": "C:\\Users\\ASUS\\Source\\Repos\\DonaBook\\DonaBookApi\\DonaBookApi.csproj",
+      "projectPath": "C:\\Users\\ASUS\\source\\DonaBook\\DonaBookApi\\DonaBookApi.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Source\\Repos\\DonaBook\\DonaBookApi\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\source\\DonaBook\\DonaBookApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

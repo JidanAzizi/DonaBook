@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonaBook", "DonaBook\DonaBook.csproj", "{92982373-DC18-44BC-930E-1754D1EEFD8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonaBookApi", "DonaBookApi\DonaBookApi.csproj", "{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonaBook_Gui", "DonaBook_Gui\DonaBook_Gui.csproj", "{30D8B23F-9E1C-450C-AEBA-86FF18B7C8C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3F638CF-25FF-44A9-BC6F-BEF2BE60D146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30D8B23F-9E1C-450C-AEBA-86FF18B7C8C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D8B23F-9E1C-450C-AEBA-86FF18B7C8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D8B23F-9E1C-450C-AEBA-86FF18B7C8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D8B23F-9E1C-450C-AEBA-86FF18B7C8C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

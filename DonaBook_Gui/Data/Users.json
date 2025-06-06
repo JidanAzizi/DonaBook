@@ -1,0 +1,12 @@
+﻿[
+  {
+    "username": "donatur",
+    "password": "12345",
+    "role": "donatur"
+  },
+  {
+    "username": "penerima",
+    "password": "12345",
+    "role": "penerima"
+  }
+]
