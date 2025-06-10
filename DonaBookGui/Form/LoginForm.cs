@@ -1,4 +1,3 @@
-
 using System;
 using System.Net.Http;
 using System.Text;
@@ -9,8 +8,6 @@ using DonaBookGui.Forms.Donatur;
 using DonaBookGui.Forms.Penerima;
 using DonaBookGui.Forms.Volunteer;
 using DonaBookGui.Services; 
-
-
 
 namespace DonaBookGui.Forms.Auth
 {
@@ -67,7 +64,7 @@ namespace DonaBookGui.Forms.Auth
                             // new Penerima.Penerima(loggedInUser).Show(); // Pastikan form Penerima juga sudah diperbaiki
                             break;
                         case "volunteer":
-                            // new VolunteerForm(loggedInUser).Show(); // Pastikan form Volunteer juga sudah diperbaiki
+                            new VolunteerForm().Show();
                             break;
                         default:
                             MessageBox.Show("Role tidak dikenali.", "Error");
