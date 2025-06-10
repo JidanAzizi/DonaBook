@@ -1,8 +1,14 @@
-﻿using DonaBookApi.Model;
+﻿// Lokasi: DonaBookApi/Controllers/BookController.cs
+
+// Hanya menggunakan Model dari proyek API itu sendiri
+using DonaBookApi.Model;
+using DonaBookClient.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using DonaBookClient.Models;
+
+// 'using DonaBookClient.Models;' sudah dihapus karena tidak sesuai dengan arsitektur yang baik.
+// Server tidak seharusnya memiliki dependensi ke Client.
 
 namespace DonaBookApi.Controllers
 {
@@ -53,6 +59,31 @@ namespace DonaBookApi.Controllers
             SaveBooks(books);
             return CreatedAtAction(nameof(GetById), new { id = newBook.Id }, newBook);
         }
+
+        // === ENDPOINT BARU UNTUK FITUR "AMBIL BUKU" ===
+        // Metode ini dipanggil oleh TakeBookAsync dari BookApiService
+        [HttpPut("take/{id}")]
+        public IActionResult TakeBook(int id)
+        {
+            var books = LoadBooks();
+            var book = books.FirstOrDefault(b => b.Id == id);
+
+            if (book == null)
+            {
+                return NotFound("Buku tidak ditemukan.");
+            }
+
+            if (book.Quantity <= 0)
+            {
+                return BadRequest("Stok buku sudah habis.");
+            }
+
+            book.Quantity--; // Kurangi kuantitas
+            SaveBooks(books); // Simpan perubahan
+
+            return Ok(new { message = "Buku berhasil diambil.", currentQuantity = book.Quantity });
+        }
+        // ===============================================
 
         [HttpPost("submit/{id}")]
         public IActionResult Submit(int id)
