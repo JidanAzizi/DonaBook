@@ -34,5 +34,14 @@
     "password": "jidanpass",
     "contact": "08113",
     "role": "donatur"
+  },
+  {
+    "id": 5,
+    "name": "naufal",
+    "email": "naufal@example.com",
+    "address": "karawang",
+    "password": "qwerty11",
+    "contact": "1234",
+    "role": "penerima"
   }
 ]

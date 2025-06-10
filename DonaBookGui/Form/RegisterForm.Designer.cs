@@ -165,7 +165,7 @@
             btnRegister.TabIndex = 15;
             btnRegister.Text = "DAFTAR";
             btnRegister.UseVisualStyleBackColor = false;
-            btnRegister.Click += btnRegister_Click;
+            btnRegister.Click += BtnRegister_Click;
             // 
             // lnkLogin
             // 
@@ -175,7 +175,7 @@
             lnkLogin.TabIndex = 16;
             lnkLogin.TabStop = true;
             lnkLogin.Text = "Sudah punya akun? Login";
-            lnkLogin.LinkClicked += lnkLogin_LinkClicked;
+            lnkLogin.LinkClicked += LnkLogin_LinkClicked;
             // 
             // RegisterForm
             // 
