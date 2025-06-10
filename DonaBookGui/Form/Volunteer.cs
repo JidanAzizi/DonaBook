@@ -51,7 +51,7 @@ namespace DonaBookGui.Forms.Volunteer
                 }
 
                 // Update report
-                lblTotalBooks.Text = $"Total Buku: {allBooks.Count}";
+                    lblTotalBooks.Text = $"Total Buku: {allBooks.Count}";
                 lblVerifiedBooks.Text = $"Buku Terverifikasi: {verifiedBooks.Count}";
                 lblUnverifiedBooks.Text = $"Buku Belum Verifikasi: {pendingBooks.Count}";
                 lblTotalDonated.Text = $"Total Donasi Buku: {allBooks.Sum(b => b.Quantity)}";
@@ -105,24 +105,7 @@ namespace DonaBookGui.Forms.Volunteer
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VolunteerForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
 
         }
     }
-}
+
