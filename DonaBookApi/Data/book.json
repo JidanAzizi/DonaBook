@@ -110,5 +110,33 @@
     "Review": "Buku sangat bermanfaat untuk perubahan kebiasaan",
     "Rating": 3,
     "State": "verified"
+  },
+  {
+    "Id": 10,
+    "Title": "P",
+    "Author": "P",
+    "Publisher": "P",
+    "Genre": "fiction",
+    "Category": "dewasa",
+    "Condition": "bekasBaik",
+    "Quantity": 1,
+    "IsVerified": false,
+    "Review": null,
+    "Rating": 0,
+    "State": "submitted"
+  },
+  {
+    "Id": 11,
+    "Title": "BukuTest1",
+    "Author": "jidan",
+    "Publisher": "jidan",
+    "Genre": "mystery",
+    "Category": "dewasa",
+    "Condition": "bekasBaik",
+    "Quantity": 1,
+    "IsVerified": false,
+    "Review": null,
+    "Rating": 0,
+    "State": "submitted"
   }
 ]

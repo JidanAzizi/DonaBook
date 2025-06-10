@@ -1,28 +1,35 @@
-﻿using System.Net.Http.Headers;
-using Microsoft.Extensions.Configuration;
+﻿// Lokasi: DonaBookClient/Services/ApiClient.cs
+using System;
+using System.IO;
+using System.Net.Http;
+using Microsoft.Extensions.Configuration; // <-- Tambahkan using ini
 
 namespace DonaBookClient.Services
 {
     public class ApiClient
     {
-        private readonly HttpClient _client;
+        public HttpClient Client { get; }
+        private static IConfiguration _configuration;
 
         public ApiClient()
         {
-            var config = new ConfigurationBuilder()
+            // Membangun konfigurasi dari file appsettings.json
+            // File ini akan dibaca dari direktori output saat aplikasi GUI berjalan
+            var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-            string baseUrl = config["baseAddress"] ?? throw new Exception("baseAddress tidak ditemukan di konfigurasi.");
+            _configuration = builder.Build();
 
-            _client = new HttpClient
+            // Mengambil BaseUrl dari konfigurasi dan membuat HttpClient
+            string baseUrl = _configuration["ApiBaseUrl"];
+            if (string.IsNullOrEmpty(baseUrl))
             {
-                BaseAddress = new Uri(baseUrl)
-            };
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        }
+                // Fallback jika URL tidak ditemukan di appsettings.json
+                throw new Exception("ApiBaseUrl tidak ditemukan di appsettings.json");
+            }
 
-        public HttpClient Client => _client;
+            Client = new HttpClient { BaseAddress = new Uri(baseUrl) };
+        }
     }
 }
