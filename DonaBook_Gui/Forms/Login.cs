@@ -15,11 +15,22 @@ namespace DonaBook_Gui.Forms
         public Login()
         {
             InitializeComponent();
-            LoadUsers();
         }
 
-        private void LoadUsers()
+        private void txtLogin_Click(object sender, EventArgs e)
         {
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
+            if (!IsValidInput(username, password))
+                return;
+
+            if (!File.Exists(UserFilePath))
+            {
+                MessageBox.Show("File Users.json tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
                 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "users.json");
