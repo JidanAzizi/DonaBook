@@ -1,15 +1,16 @@
+
 using System;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
-
-using DonaBookGui.Forms.Auth;
+using DonaBookApi.Model;
 using DonaBookGui.Forms.Donatur;
 using DonaBookGui.Forms.Penerima;
 using DonaBookGui.Forms.Volunteer;
-using DonaBookGui.Models;
-using DonaBookGui.Services;
+using DonaBookGui.Services; 
+
+
 
 namespace DonaBookGui.Forms.Auth
 {
@@ -27,13 +28,8 @@ namespace DonaBookGui.Forms.Auth
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            var email = txtUsername.Text;
-            var password = txtPassword.Text;
-
-            var loginData = new { Email = email, Password = password };
-
-            var json = JsonSerializer.Serialize(loginData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var loginData = new { Email = txtUsername.Text, Password = txtPassword.Text };
+            var content = new StringContent(JsonSerializer.Serialize(loginData), Encoding.UTF8, "application/json");
 
             try
             {
@@ -42,33 +38,41 @@ namespace DonaBookGui.Forms.Auth
                 if (response.IsSuccessStatusCode)
                 {
                     var responseBody = await response.Content.ReadAsStringAsync();
-                    var loginResult = JsonSerializer.Deserialize<LoginResult>(responseBody, new JsonSerializerOptions
+
+                    // --- INI BAGIAN UTAMA PERBAIKAN ---
+                    // Tidak lagi Deserialize ke 'LoginResult', tapi langsung ke 'User'
+                    var loggedInUser = JsonSerializer.Deserialize<User>(responseBody, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
 
-
-                    Session.CurrentUser = loginResult;
-
-                    MessageBox.Show($"Login berhasil sebagai {loginResult.Role}!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Buka form dashboard sesuai role
-                    switch (loginResult.Role.ToLower())
+                    // Pastikan user tidak null setelah deserialize
+                    if (loggedInUser == null)
                     {
-                        case "donatur":
-                            new Donatur.Donatur().Show();
-                            break;
-                        case "penerima":
-                            new Penerima.Penerima().Show();
-                            break;
-                        case "volunteer":
-                            new VolunteerForm().Show();
-                            break;
-                        default:
-                            MessageBox.Show("Role tidak dikenali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                        MessageBox.Show("Gagal memproses data login dari server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
 
+                    Session.CurrentUser = loggedInUser;
+                    MessageBox.Show($"Login berhasil sebagai {loggedInUser.Role}!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Buka form dashboard sesuai role dan oper data 'loggedInUser'
+                    switch (loggedInUser.Role.ToLower())
+                    {
+                        case "donatur":
+                            // Panggilan ini sekarang valid karena tipe datanya sama (User)
+                            new Donatur.Donatur(loggedInUser).Show();
+                            break;
+                        case "penerima":
+                            // new Penerima.Penerima(loggedInUser).Show(); // Pastikan form Penerima juga sudah diperbaiki
+                            break;
+                        case "volunteer":
+                            // new VolunteerForm(loggedInUser).Show(); // Pastikan form Volunteer juga sudah diperbaiki
+                            break;
+                        default:
+                            MessageBox.Show("Role tidak dikenali.", "Error");
+                            return;
+                    }
                     this.Hide();
                 }
                 else
@@ -89,9 +93,6 @@ namespace DonaBookGui.Forms.Auth
             this.Hide();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void LoginForm_Load(object sender, EventArgs e) { }
     }
 }

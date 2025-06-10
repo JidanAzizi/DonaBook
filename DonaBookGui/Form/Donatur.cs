@@ -1,240 +1,202 @@
-﻿using System;
-using System.Windows.Forms;
-using DonaBookGui.Services;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.ResponseCaching;
-using DonaBookApi.Controllers;
+﻿// Lokasi: DonaBookGui/Forms/Donatur/Donatur.cs
 using DonaBookApi.Model;
-using DonaBookApi.Services;
+using DonaBookClient.Models;
+using DonaBookClient.Services;
+using System;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DonaBookGui.Forms.Donatur
 {
     public partial class Donatur : Form
     {
-        public Donatur()
+        private readonly BookApiService _bookService;
+        private readonly User _loggedInUser;
+
+        public Donatur(User user)
         {
             InitializeComponent();
-            lblWelcome.Text = $"Selamat datang, {Session.CurrentUser?.Name} (Donatur)";
+            _bookService = new BookApiService();
+            _loggedInUser = user;
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private async void Donatur_Load(object sender, EventArgs e)
         {
-            Session.Logout();
-            new Auth.LoginForm().Show();
-            this.Close();
-        }
-
-        private void categoryButtonGroupAnak(object sender, EventArgs e)
-        {
-            if (anakAnakButtonCat.Checked)
+            if (_loggedInUser == null)
             {
-                remajaButtonCat.Checked = false;
-                dewasaButtonCat.Checked = false;
-            }
-        }
-
-        private void categoryButtonGroupRemaja(object sender, EventArgs e)
-        {
-            if (remajaButtonCat.Checked)
-            {
-                anakAnakButtonCat.Checked = false;
-                dewasaButtonCat.Checked = false;
-            }
-        }
-
-        private void categoryButtonGroupDewasa(object sender, EventArgs e)
-        {
-            if (dewasaButtonCat.Checked)
-            {
-                anakAnakButtonCat.Checked = false;
-                remajaButtonCat.Checked = false;
-            }
-        }
-
-        private void stateButtonGroupSubmitted(object sender, EventArgs e)
-        {
-            if (submittedButtonState.Checked)
-            {
-                draftButtonState.Checked = false;
-                verifiedButtonState.Checked = false;
-                rejectedButtonState.Checked = false;
-            }
-        }
-
-        private void stateButtonGroupDraft(object sender, EventArgs e)
-        {
-            if (draftButtonState.Checked)
-            {
-                submittedButtonState.Checked = false;
-                verifiedButtonState.Checked = false;
-                rejectedButtonState.Checked = false;
-            }
-        }
-
-        private void stateButtonGroupVerified(object sender, EventArgs e)
-        {
-            if (verifiedButtonState.Checked)
-            {
-                draftButtonState.Checked = false;
-                submittedButtonState.Checked = false;
-                rejectedButtonState.Checked = false;
-            }
-        }
-
-        private void stateButtonGroupRejected(object sender, EventArgs e)
-        {
-            if (rejectedButtonState.Checked)
-            {
-                draftButtonState.Checked = false;
-                submittedButtonState.Checked = false;
-                verifiedButtonState.Checked = false;
-            }
-        }
-        private void conditionButtonGroupBaru(object sender, EventArgs e)
-        {
-
-            if (baruButtonCondition.Checked)
-            {
-                bekasBaikButtonCondition.Checked = false;
-                bekasRusakButtonCondition.Checked = false;
-            }
-        }
-
-        private void conditionButtonGroupBekasBaik(object sender, EventArgs e)
-        {
-            if (bekasBaikButtonCondition.Checked)
-            {
-                baruButtonCondition.Checked = false;
-                bekasRusakButtonCondition.Checked = false;
-            }
-        }
-
-        private void conditionButtonGroupBekasRusak(object sender, EventArgs e)
-        {
-            if (bekasRusakButtonCondition.Checked)
-            {
-                baruButtonCondition.Checked = false;
-                bekasBaikButtonCondition.Checked = false;
-            }
-        }
-
-        private void textboxJudulFitur1Text(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void btnSelesaiDonasiBuku(object sender, EventArgs e)
-        {
-            // Memvalidasi input untuk judul tidak boleh kosong.
-            if (string.IsNullOrWhiteSpace(textboxJudulFitur1.Text))
-            {
-                MessageBox.Show("Judul buku tidak boleh kosong.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textboxJudulFitur1.Focus();
+                lblWelcome.Text = "Selamat datang, Tamu!";
+                MessageBox.Show("Gagal memuat data pengguna.", "Error");
                 return;
             }
+            lblWelcome.Text = $"Selamat datang, {_loggedInUser.Name}!";
 
-            // Mengumpulkan data dari inputan user.
-            var judul = textboxJudulFitur1.Text.Trim();
-            var penulis = textboxPenulisFitur1.Text.Trim();
-            var genre = GetSelectedGenres();
-            var kategori = anakAnakButtonCat.Checked ? "Anak" :
-                           remajaButtonCat.Checked ? "Remaja" :
-                           dewasaButtonCat.Checked ? "Dewasa" : "";
-            var kondisi = baruButtonCondition.Checked ? "Baru" :
-                            bekasBaikButtonCondition.Checked ? "Bekas Baik" :
-                            bekasRusakButtonCondition.Checked ? "Bekas Rusak" : "";
-            var state = draftButtonState.Checked ? "Draft" :
-                        submittedButtonState.Checked ? "Submitted" :
-                        verifiedButtonState.Checked ? "Verified" :
-                        rejectedButtonState.Checked ? "Rejected" : "";
+            // Panggil metode load yang sudah diperbaiki
+            SetupVerifiedBooksGrid();
+            SetupReviewsGrid();
 
-            // Validasi field lain.
-            if (string.IsNullOrEmpty(kategori) || string.IsNullOrEmpty(kondisi) || string.IsNullOrEmpty(state))
+            await LoadVerifiedBooksAsync();
+            await LoadReviewsAsync();
+        }
+
+        #region Konfigurasi Awal DataGridView
+
+        private void SetupVerifiedBooksGrid()
+        {
+            dgvVerifiedBooks.AutoGenerateColumns = false; // 1. Matikan pembuatan kolom otomatis
+            dgvVerifiedBooks.Columns.Clear(); // 2. Bersihkan kolom yang mungkin sudah ada
+
+            // 3. Definisikan kolom yang ingin ditampilkan secara manual
+            dgvVerifiedBooks.Columns.Add(new DataGridViewTextBoxColumn
             {
-                MessageBox.Show("Mohon lengkapi semua kategori, kondisi, dan status buku.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var bookData = new
+                Name = "Id",
+                HeaderText = "ID",
+                DataPropertyName = "Id", // Ini harus cocok dengan nama properti di class Book
+                Width = 50
+            });
+            dgvVerifiedBooks.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Judul = judul,
-                Penulis = penulis,
-                Genre = genre,
-                Kategori = kategori,
-                Kondisi = kondisi,
-                State = state,
-            };
+                Name = "Title",
+                HeaderText = "Judul",
+                DataPropertyName = "Title",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dgvVerifiedBooks.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Author",
+                HeaderText = "Penulis",
+                DataPropertyName = "Author",
+                Width = 150
+            });
+            dgvVerifiedBooks.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Genre",
+                HeaderText = "Genre",
+                DataPropertyName = "Genre",
+                Width = 100
+            });
+        }
 
+        private void SetupReviewsGrid()
+        {
+            dgvReviews.AutoGenerateColumns = false; // 1. Matikan pembuatan kolom otomatis
+            dgvReviews.Columns.Clear(); // 2. Bersihkan kolom yang mungkin sudah ada
+
+            // 3. Definisikan kolom yang ingin ditampilkan secara manual
+            dgvReviews.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Title",
+                HeaderText = "Judul Buku",
+                DataPropertyName = "Title",
+                Width = 200
+            });
+            dgvReviews.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Rating",
+                HeaderText = "Rating",
+                DataPropertyName = "Rating",
+                Width = 60
+            });
+            dgvReviews.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Review",
+                HeaderText = "Isi Review",
+                DataPropertyName = "Review",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                DefaultCellStyle = new DataGridViewCellStyle { WrapMode = DataGridViewTriState.True }
+            });
+            dgvReviews.RowTemplate.Height = 60; // Atur tinggi baris agar review panjang terlihat
+        }
+
+        #endregion
+
+        #region Load Data Methods
+
+        private async Task LoadVerifiedBooksAsync()
+        {
             try
             {
-                using var client = new HttpClient();
-                var response = await client.PostAsJsonAsync("http://localhost:5141/api/Book", bookData);
+                btnRefreshVerified.Enabled = false;
+                dgvVerifiedBooks.DataSource = null;
+                var data = await _bookService.GetVerifiedBooksAsync();
+                dgvVerifiedBooks.DataSource = data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Gagal memuat buku: {ex.Message}", "Error");
+            }
+            finally
+            {
+                btnRefreshVerified.Enabled = true;
+            }
+        }
 
-                if (response.IsSuccessStatusCode)
+        private async Task LoadReviewsAsync()
+        {
+            try
+            {
+                btnRefreshReviews.Enabled = false;
+                dgvReviews.DataSource = null;
+                var data = await _bookService.GetBooksWithReviewsAsync();
+                dgvReviews.DataSource = data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Gagal memuat review: {ex.Message}", "Error");
+            }
+            finally
+            {
+                btnRefreshReviews.Enabled = true;
+            }
+        }
+        #endregion
+
+        // ... (Semua kode lain seperti btnSubmitDonasi_Click dan helper method tidak perlu diubah) ...
+        #region Event Handlers
+        private void btnLogout_Click(object sender, EventArgs e) { this.Close(); }
+        private async void btnRefreshVerified_Click(object sender, EventArgs e) { await LoadVerifiedBooksAsync(); }
+        private async void btnRefreshReviews_Click(object sender, EventArgs e) { await LoadReviewsAsync(); }
+        private async void btnSubmitDonasi_Click(object sender, EventArgs e)
+        {
+            if (!ValidateDonationForm()) return;
+            var newBook = new Book { Title = txtJudul.Text.Trim(), Author = txtPenulis.Text.Trim(), Publisher = txtPenerbit.Text.Trim(), Quantity = (int)numJumlah.Value, IsVerified = false, Genre = Enum.Parse<Genre>(GetSelectedRadioButtonText(gbGenre), true), Category = Enum.Parse<Category>(GetSelectedRadioButtonText(gbKategori), true), Condition = Enum.Parse<BookCondition>(GetSelectedRadioButtonText(gbKondisi), true) };
+            try
+            {
+                var createdBook = await _bookService.DonateBookAsync(newBook);
+                if (createdBook != null)
                 {
-                    MessageBox.Show("Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await _bookService.SubmitAsync(createdBook.Id);
+                    MessageBox.Show("Buku berhasil didonasikan dan diajukan untuk verifikasi!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ResetDonasiForm();
-                }
-                else
-                {
-                    MessageBox.Show("Gagal mengirim data. Pastikan semua field terisi dengan benar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Terjadi kesalahan saat mengirim data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // Method untuk menambahkan List genre.
-        private List<string> GetSelectedGenres() {
-            var genres = new List<string>();
-            if (fictionLabelGenre.Checked) genres.Add("Fiction");
-            if (nonFictionLabelGenre.Checked) genres.Add("NonFiction");
-            if (scienceFictionLabelGenre.Checked) genres.Add("ScienceFiction");
-            if (fantasyLabelGenre.Checked) genres.Add("Fantasy");
-            if (mysteryLabelGenre.Checked) genres.Add("Mystery");
-            if (romanceLabelGenre.Checked) genres.Add("Romance");
-            if (biographyLabelGenre.Checked) genres.Add("Biography");
-            if (horrorLabelGenre.Checked) genres.Add("Horror");
-            if (historyLabelGenre.Checked) genres.Add("History");
-            if (selfHelpLabelGenre.Checked) genres.Add("SelfHelp");
-            if (unknownLabelGenre.Checked) genres.Add("Unknown");
-            return genres;
+        #endregion
+        #region Helper Methods
+        private bool ValidateDonationForm()
+        {
+            if (string.IsNullOrWhiteSpace(txtJudul.Text) || string.IsNullOrWhiteSpace(txtPenulis.Text) || string.IsNullOrWhiteSpace(txtPenerbit.Text))
+            { MessageBox.Show("Judul, Penulis, dan Penerbit tidak boleh kosong.", "Peringatan"); return false; }
+            if (string.IsNullOrEmpty(GetSelectedRadioButtonText(gbGenre)) || string.IsNullOrEmpty(GetSelectedRadioButtonText(gbKategori)) || string.IsNullOrEmpty(GetSelectedRadioButtonText(gbKondisi)))
+            { MessageBox.Show("Silakan pilih Genre, Kategori, dan Kondisi.", "Peringatan"); return false; }
+            return true;
         }
-
-        // Reset form untuk fitur donasi.
-        private void ResetDonasiForm() { 
-            textboxJudulFitur1.Text = "";
-            textboxPenulisFitur1.Text = "";
-
-            fictionLabelGenre.Checked = false;
-            nonFictionLabelGenre.Checked = false;
-            scienceFictionLabelGenre.Checked = false;
-            fantasyLabelGenre.Checked = false;
-            mysteryLabelGenre.Checked = false;
-            romanceLabelGenre.Checked = false;
-            horrorLabelGenre.Checked = false;
-            biographyLabelGenre.Checked = false;
-            selfHelpLabelGenre.Checked = false;
-            historyLabelGenre.Checked = false;
-            unknownLabelGenre.Checked = false;
-
-            anakAnakButtonCat.Checked = false;
-            remajaButtonCat.Checked = false;
-            dewasaButtonCat.Checked = false;
-
-            baruButtonCondition.Checked = false;
-            bekasBaikButtonCondition.Checked = false;
-            bekasRusakButtonCondition.Checked = false;
-
-            draftButtonState.Checked = false;
-            submittedButtonState.Checked = false;
-            verifiedButtonState.Checked = false;
-            rejectedButtonState.Checked = false;
+        private string GetSelectedRadioButtonText(GroupBox groupBox)
+        { return groupBox.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked)?.Text ?? string.Empty; }
+        private void ResetDonasiForm()
+        {
+            txtJudul.Clear(); txtPenulis.Clear(); txtPenerbit.Clear();
+            numJumlah.Value = 1;
+            Action<GroupBox> uncheckRadioButtons = (gb) => { var rb = gb.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked); if (rb != null) rb.Checked = false; };
+            uncheckRadioButtons(gbGenre);
+            uncheckRadioButtons(gbKategori);
+            uncheckRadioButtons(gbKondisi);
         }
+        #endregion
     }
 }
