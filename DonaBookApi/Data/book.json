@@ -148,9 +148,23 @@
     "Category": "remaja",
     "Condition": "bekasBaik",
     "Quantity": 1,
-    "IsVerified": false,
+    "IsVerified": true,
     "Review": null,
     "Rating": 0,
-    "State": "submitted"
+    "State": "verified"
+  },
+  {
+    "Id": 13,
+    "Title": "a",
+    "Author": "b",
+    "Publisher": "c",
+    "Genre": "fiction",
+    "Category": "anakAnak",
+    "Condition": "baru",
+    "Quantity": 1,
+    "IsVerified": true,
+    "Review": null,
+    "Rating": 0,
+    "State": "verified"
   }
 ]
