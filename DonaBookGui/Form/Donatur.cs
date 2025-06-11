@@ -1,5 +1,4 @@
-﻿// Lokasi: DonaBookGui/Forms/Donatur/Donatur.cs
-using DonaBookApi.Model;
+﻿using DonaBookApi.Model;
 using DonaBookClient.Models;
 using DonaBookClient.Services;
 using System;
@@ -22,6 +21,7 @@ namespace DonaBookGui.Forms.Donatur
             _loggedInUser = user;
         }
 
+        // Menampilkan nama user.
         private async void Donatur_Load(object sender, EventArgs e)
         {
             if (_loggedInUser == null)
@@ -32,7 +32,7 @@ namespace DonaBookGui.Forms.Donatur
             }
             lblWelcome.Text = $"Selamat datang, {_loggedInUser.Name}!";
 
-            // Panggil metode load yang sudah diperbaiki
+            // Panggil metode load yang sudah diperbaiki.
             SetupVerifiedBooksGrid();
             SetupReviewsGrid();
 
@@ -42,17 +42,17 @@ namespace DonaBookGui.Forms.Donatur
 
         #region Konfigurasi Awal DataGridView
 
+        // Mengatur kolom DataGridView.
         private void SetupVerifiedBooksGrid()
         {
-            dgvVerifiedBooks.AutoGenerateColumns = false; // 1. Matikan pembuatan kolom otomatis
-            dgvVerifiedBooks.Columns.Clear(); // 2. Bersihkan kolom yang mungkin sudah ada
+            dgvVerifiedBooks.AutoGenerateColumns = false;
+            dgvVerifiedBooks.Columns.Clear();
 
-            // 3. Definisikan kolom yang ingin ditampilkan secara manual
             dgvVerifiedBooks.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Id",
                 HeaderText = "ID",
-                DataPropertyName = "Id", // Ini harus cocok dengan nama properti di class Book
+                DataPropertyName = "Id",
                 Width = 50
             });
             dgvVerifiedBooks.Columns.Add(new DataGridViewTextBoxColumn
@@ -78,12 +78,12 @@ namespace DonaBookGui.Forms.Donatur
             });
         }
 
+        // Mengatur tampilan kolom unutuk daftar review buku.
         private void SetupReviewsGrid()
         {
-            dgvReviews.AutoGenerateColumns = false; // 1. Matikan pembuatan kolom otomatis
-            dgvReviews.Columns.Clear(); // 2. Bersihkan kolom yang mungkin sudah ada
+            dgvReviews.AutoGenerateColumns = false;
+            dgvReviews.Columns.Clear();
 
-            // 3. Definisikan kolom yang ingin ditampilkan secara manual
             dgvReviews.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Title",
@@ -106,13 +106,14 @@ namespace DonaBookGui.Forms.Donatur
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 DefaultCellStyle = new DataGridViewCellStyle { WrapMode = DataGridViewTriState.True }
             });
-            dgvReviews.RowTemplate.Height = 60; // Atur tinggi baris agar review panjang terlihat
+            dgvReviews.RowTemplate.Height = 60;
         }
 
         #endregion
 
         #region Load Data Methods
 
+        // Mengambil data buku yang sudah diverifikasi.
         private async Task LoadVerifiedBooksAsync()
         {
             try
@@ -132,6 +133,7 @@ namespace DonaBookGui.Forms.Donatur
             }
         }
 
+        // Mengambil data buku dan review.
         private async Task LoadReviewsAsync()
         {
             try
@@ -152,7 +154,7 @@ namespace DonaBookGui.Forms.Donatur
         }
         #endregion
 
-        // ... (Semua kode lain seperti btnSubmitDonasi_Click dan helper method tidak perlu diubah) ...
+        // Handlers untuk tombol-tombol.
         #region Event Handlers
         private void btnLogout_Click(object sender, EventArgs e) { this.Close(); }
         private async void btnRefreshVerified_Click(object sender, EventArgs e) { await LoadVerifiedBooksAsync(); }
@@ -178,6 +180,8 @@ namespace DonaBookGui.Forms.Donatur
         }
         #endregion
         #region Helper Methods
+
+        // Validasi form donasi buku.
         private bool ValidateDonationForm()
         {
             if (string.IsNullOrWhiteSpace(txtJudul.Text) || string.IsNullOrWhiteSpace(txtPenulis.Text) || string.IsNullOrWhiteSpace(txtPenerbit.Text))
@@ -186,8 +190,12 @@ namespace DonaBookGui.Forms.Donatur
             { MessageBox.Show("Silakan pilih Genre, Kategori, dan Kondisi.", "Peringatan"); return false; }
             return true;
         }
+
+        // Mengambil teks dari RadioButton.
         private string GetSelectedRadioButtonText(GroupBox groupBox)
         { return groupBox.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked)?.Text ?? string.Empty; }
+
+        // Mengatur ulang form donasi buku.
         private void ResetDonasiForm()
         {
             txtJudul.Clear(); txtPenulis.Clear(); txtPenerbit.Clear();
